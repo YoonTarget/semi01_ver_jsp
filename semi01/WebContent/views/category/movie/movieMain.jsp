@@ -9,15 +9,7 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <style>
-	/* 바디 시작 */
-        /* 바디 기본 */
-        /* .body{ */
-            /* height: 2000px;  */
-            /* 높이 임의 */
-            /* background-color: skyblue; */
-        /* } */
-
-        .page_heading{
+	.page_heading{
             /* border: 1px solid red; */
             margin: auto;
             width: 1120px;
@@ -94,14 +86,14 @@
         /* 바디 메인 */
         
         /* 윤관현_시작 */
-        .outer {
+        .yoontarget {
             /* border: 1px solid red; */
             /* background-color: lightgray; */
-            /* height: 3200px; */
+            height: 3200px;
             width: 65%;
             margin: auto;
         }
-        .outer div {
+        .yoontarget>div {
             /* border: 1px solid red; */
             width: 100%;
         }
@@ -126,7 +118,7 @@
             width: 25%;
             height: 530px;
         }
-        .outer img{
+        .yoontarget img{
             border-radius: 20px;
             border: 1px solid rgb(156, 152, 152);
         }
@@ -218,366 +210,355 @@
 <body>
 	<%@ include file = "../../common/header.jsp" %>
 	
-	<div class="outer">
-		<br>
-
-
-
+	<!-- 내용 넣을 수 있는 구간 시작 -->
                 
-			<!-- 내용 넣을 수 있는 구간 시작 -->
-			
-			<!-- 윤관현_시작 -->
+                <!-- 윤관현_시작 -->
+                <div class="yoontarget">
 
+                    <div class="page_heading">
+                        <h1 class="page_title">
+                            영화
+                        </h1>
+                        <div class="common_tab_area">
+    
+                            <ul class="common_tab_list" role="tablist">
+                                    <li class="common_tab_item" role="none">
+                                        <button type="button" class="common_tab_btn" role="tab" aria-selected="true">전체</button>
+                                    </li>
+                                    <li class="common_tab_item" role="none">
+                                        <button type="button" class="common_tab_btn" role="tab" aria-selected="false">로맨스</button>
+                                        </li>
+                                    <li class="common_tab_item" role="none">
+                                        <button type="button" class="common_tab_btn" role="tab" aria-selected="false">공포</button>
+                                        </li>
+                                    <li class="common_tab_item" role="none">
+                                        <button type="button" class="common_tab_btn" role="tab" aria-selected="false">코미디</button>
+                                    </li>
+                                    <li class="common_tab_item" role="none">
+                                        <button type="button" class="common_tab_btn" role="tab" aria-selected="false">액션</button>
+                                    </li>
+                            </ul>
+                        </div>
+                               
+                    </div> <!-- 버튼 끝 -->
 
-				<div class="page_heading">
-					<h1 class="page_title">
-						영화
-					</h1>
-					<div class="common_tab_area">
+                    <!-- 랭킹 시작 -->
+                    <h1 id="ranking" class="movieHead">
+                        <a href="">랭킹</a>
+                    </h1>
+                    
+                    <!-- 메인배너 시작 -->
+                    <div id="demo" class="carousel slide" data-bs-ride="carousel">
+                        
+                        <!-- 하단 버튼 시작 -->
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+                            <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+                            <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+                        </div>
+                        <!-- //하단 버튼 끝 -->
+                        
+                        <!-- 이미지 시작 -->
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="../resorces/이미지자료/02_영화/공포,스릴러영화/콘크리트유토피아_wide.jpg" class="d-block">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../resorces/이미지자료/02_영화/액션영화/밀수_wide.jpg" class="d-block">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../resorces/이미지자료/02_영화/액션영화/비공식작전_wide.jpg" class="d-block">
+                            </div>
+                        </div>
 
-						<ul class="common_tab_list" role="tablist">
-								<li class="common_tab_item" role="none">
-									<button type="button" class="common_tab_btn" role="tab" aria-selected="true">전체</button>
-								</li>
-								<li class="common_tab_item" role="none">
-									<button type="button" class="common_tab_btn" role="tab" aria-selected="false">로맨스</button>
-									</li>
-								<li class="common_tab_item" role="none">
-									<button type="button" class="common_tab_btn" role="tab" aria-selected="false">공포</button>
-									</li>
-								<li class="common_tab_item" role="none">
-									<button type="button" class="common_tab_btn" role="tab" aria-selected="false">코미디</button>
-								</li>
-								<li class="common_tab_item" role="none">
-									<button type="button" class="common_tab_btn" role="tab" aria-selected="false">액션</button>
-								</li>
-						</ul>
-					</div>
-						   
-				</div> <!-- 버튼 끝 -->
+                        <!-- <script>
+                            function test() {
 
-				<!-- 랭킹 시작 -->
-				<h1 id="ranking" class="movieHead">
-					<a href="">랭킹</a>
-				</h1>
-				
-				<!-- 메인배너 시작 -->
-				<div id="demo" class="carousel slide" data-bs-ride="carousel">
-					
-					<!-- 하단 버튼 시작 -->
-					<div class="carousel-indicators">
-						<button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
-						<button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
-						<button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
-					</div>
-					<!-- //하단 버튼 끝 -->
-					
-					<!-- 이미지 시작 -->
-					<div class="carousel-inner">
-						<div class="carousel-item active">
-							<img src="../resorces/이미지자료/02_영화/공포,스릴러영화/콘크리트유토피아_wide.jpg" class="d-block">
-						</div>
-						<div class="carousel-item">
-							<img src="../resorces/이미지자료/02_영화/액션영화/밀수_wide.jpg" class="d-block">
-						</div>
-						<div class="carousel-item">
-							<img src="../resorces/이미지자료/02_영화/액션영화/비공식작전_wide.jpg" class="d-block">
-						</div>
-					</div>
+                                location.href = "#";
 
-					<!-- <script>
-						function test() {
+                            };
+                        </script> -->
 
-							location.href = "#";
+                        <!-- //이미지 끝 -->
+                        
+                        <!-- 좌우 버튼 시작 -->
+                        <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon"></span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+                            <span class="carousel-control-next-icon"></span>
+                        </button>
+                        <!-- //좌우 버튼 끝 -->
+                        
+                    </div>
+                    <!-- //메인배너 끝 -->
+                    <!-- //랭킹 끝 -->
 
-						};
-					</script> -->
+                    <!-- 상영 예정작 시작 -->
+                    <div class="container">
 
-					<!-- //이미지 끝 -->
-					
-					<!-- 좌우 버튼 시작 -->
-					<button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
-						<span class="carousel-control-prev-icon"></span>
-					</button>
-					<button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
-						<span class="carousel-control-next-icon"></span>
-					</button>
-					<!-- //좌우 버튼 끝 -->
-					
-				</div>
-				<!-- //메인배너 끝 -->
-				<!-- //랭킹 끝 -->
+                        <!-- 전체 영화 헤드 태그 시작 -->
+                        <h1 class="movieHead">
+                            <a href="">상영 예정작</a>
+                        </h1>
+                        <!-- //전체 영화 헤드 태그 끝 -->
 
-				<!-- 상영 예정작 시작 -->
-				< class="container">
-
-					<!-- 전체 영화 헤드 태그 시작 -->
-					<h1 class="movieHead">
-						<a href="">상영 예정작</a>
-					</h1>
-					<!-- //전체 영화 헤드 태그 끝 -->
-
-					<!-- 전체 포스터 시작 -->
-					<div class="row">
-					
-					<!-- 포스터, 설명글 1 시작 -->
-					  <div class="col-md-5">
-						<div class="thumbnail">
-						  <a href="#" target="_blank">
-							<img src="../resorces/이미지자료/02_영화/로맨스영화/그시절우리가좋아했던소녀.jpg" alt="Lights" style="width:100%">
-							<div class="caption">
-							  <p>그 시절 우리가 좋아했던 소녀</p>
-							  <pre>예매율 : 26.5%</pre>
+                        <!-- 전체 포스터 시작 -->
+                        <div class="row">
+                        
+							<!-- 포스터, 설명글 1 시작 -->
+							<div class="col-md-5">
+								<div class="thumbnail">
+								<a href="#" target="_blank">
+									<img src="../resorces/이미지자료/02_영화/로맨스영화/그시절우리가좋아했던소녀.jpg" alt="Lights" style="width:100%">
+									<div class="caption">
+									<p>그 시절 우리가 좋아했던 소녀</p>
+									<pre>예매율 : 26.5%</pre>
+									</div>
+								</a>
+								</div>
 							</div>
-						  </a>
-						</div>
-					  </div>
-					  <!-- //포스터, 설명글 1 끝 -->
-					  <!-- 포스터, 설명글 2 시작 -->
-					  <div class="col-md-5">
-						<div class="thumbnail">
-						  <a href="#" target="_blank">
-							<img src="../resorces/이미지자료/02_영화/공포,스릴러영화/타켓.jpg" alt="Nature" style="width:100%">
-							<div class="caption">
-								<p>타겟</p>
-								<pre>예매율 : 25.4%</pre>
+							<!-- //포스터, 설명글 1 끝 -->
+							<!-- 포스터, 설명글 2 시작 -->
+							<div class="col-md-5">
+								<div class="thumbnail">
+								<a href="#" target="_blank">
+									<img src="../resorces/이미지자료/02_영화/공포,스릴러영화/타켓.jpg" alt="Nature" style="width:100%">
+									<div class="caption">
+										<p>타겟</p>
+										<pre>예매율 : 25.4%</pre>
+									</div>
+								</a>
+								</div>
 							</div>
-						  </a>
-						</div>
-					  </div>
-					  <!-- //포스터, 설명글 2 끝 -->
-					  <!-- 포스터, 설명글 3 시작 -->
-					  <div class="col-md-5">
-						<div class="thumbnail">
-						  <a href="#" target="_blank">
-							<img src="../resorces/이미지자료/02_영화/코미디영화/장르만 로맨스.jpg" alt="Fjords" style="width:100%">
-							<div class="caption">
-								<p>장르만 로맨스</p>
-								<pre>예매율 : 8.4%</pre>
+							<!-- //포스터, 설명글 2 끝 -->
+							<!-- 포스터, 설명글 3 시작 -->
+							<div class="col-md-5">
+								<div class="thumbnail">
+								<a href="#" target="_blank">
+									<img src="../resorces/이미지자료/02_영화/코미디영화/장르만 로맨스.jpg" alt="Fjords" style="width:100%">
+									<div class="caption">
+										<p>장르만 로맨스</p>
+										<pre>예매율 : 8.4%</pre>
+									</div>
+								</a>
+								</div>
 							</div>
-						  </a>
-						</div>
-					  </div>
-					  <!-- //포스터, 설명글 3 끝 -->
-					  <!-- 포스터, 설명글 4 시작 -->
-					  <div class="col-md-5">
-						<div class="thumbnail">
-						  <a href="#" target="_blank">
-							<img src="../resorces/이미지자료/02_영화/액션영화/귀공자 포스터.jpg" alt="Fjords" style="width:100%">
-							<div class="caption">
-								<p>귀공자</p>
-								<pre>예매율 : 5.2%</pre>
+							<!-- //포스터, 설명글 3 끝 -->
+							<!-- 포스터, 설명글 4 시작 -->
+							<div class="col-md-5">
+								<div class="thumbnail">
+								<a href="#" target="_blank">
+									<img src="../resorces/이미지자료/02_영화/액션영화/귀공자 포스터.jpg" alt="Fjords" style="width:100%">
+									<div class="caption">
+										<p>귀공자</p>
+										<pre>예매율 : 5.2%</pre>
+									</div>
+								</a>
+								</div>
 							</div>
-						  </a>
-						</div>
-					  </div>
-					  <!-- //포스터, 설명글 4 끝 -->
-					  <!-- 포스터, 설명글 5 시작 -->
-					  <div class="col-md-5">
-						<div class="thumbnail">
-						  <a href="#" target="_blank">
-							<img src="../resorces/이미지자료/02_영화/액션영화//가디언즈오브갤럭시 포스터.jpg" alt="Fjords" style="width:100%">
-							<div class="caption">
-								<p>가디언즈 오브 갤럭시</p>
-								<pre>예매율 : 5.1%</pre>
+							<!-- //포스터, 설명글 4 끝 -->
+							<!-- 포스터, 설명글 5 시작 -->
+							<div class="col-md-5">
+								<div class="thumbnail">
+								<a href="#" target="_blank">
+									<img src="../resorces/이미지자료/02_영화/액션영화//가디언즈오브갤럭시 포스터.jpg" alt="Fjords" style="width:100%">
+									<div class="caption">
+										<p>가디언즈 오브 갤럭시</p>
+										<pre>예매율 : 5.1%</pre>
+									</div>
+								</a>
+								</div>
 							</div>
-						  </a>
+							<!-- //포스터, 설명글 5 끝 -->
 						</div>
-					  </div>
-					  <!-- //포스터, 설명글 5 끝 -->
-				</div>      
-				<!-- //상영 예정작 끝 -->
-				
-				<!-- 현재 상영작 시작 -->
-				<div class="container">
+						<!-- //전체 포스터 끝 -->
+                    </div>      
+                    <!-- //상영 예정작 끝 -->
+                    
+                    <!-- 현재 상영작 시작 -->
+                    <div class="container">
 
-					<!-- 전체 영화 헤드 태그 시작 -->
-					<h1 class="movieHead">
-						<a href="">현재 상영작</a>
-					</h1>
-					<!-- //전체 영화 헤드 태그 끝 -->
+                        <!-- 전체 영화 헤드 태그 시작 -->
+                        <h1 class="movieHead">
+                            <a href="">현재 상영작</a>
+                        </h1>
+                        <!-- //전체 영화 헤드 태그 끝 -->
 
-					<!-- 전체 포스터 시작 -->
-					<div class="row">
-					
-					<!-- 포스터, 설명글 1 시작 -->
-					  <div class="col-md-4">
-						<div class="thumbnail">
-						  <a href="#" target="_blank">
-							<img src="../resorces/이미지자료/02_영화/액션영화/밀수.jpg" alt="Lights" style="width:100%">
-							<div class="caption">
-							  <p>밀수</p>
-							  <pre>예매율 : 26.5%</pre>
+                        <!-- 전체 포스터 시작 -->
+                        <div class="row">
+                        
+							<!-- 포스터, 설명글 1 시작 -->
+							<div class="col-md-4">
+								<div class="thumbnail">
+								<a href="#" target="_blank">
+									<img src="../resorces/이미지자료/02_영화/액션영화/밀수.jpg" alt="Lights" style="width:100%">
+									<div class="caption">
+									<p>밀수</p>
+									<pre>예매율 : 26.5%</pre>
+									</div>
+								</a>
+								</div>
 							</div>
-						  </a>
-						</div>
-					  </div>
-					  <!-- //포스터, 설명글 1 끝 -->
-					  <!-- 포스터, 설명글 2 시작 -->
-					  <div class="col-md-4">
-						<div class="thumbnail">
-						  <a href="#" target="_blank">
-							<img src="../resorces/이미지자료/02_영화/공포,스릴러영화/콘크리트유토피아.jpg" alt="Nature" style="width:100%">
-							<div class="caption">
-								<p>콘크리트 유토피아</p>
-								<pre>예매율 : 25.4%</pre>
+							<!-- //포스터, 설명글 1 끝 -->
+							<!-- 포스터, 설명글 2 시작 -->
+							<div class="col-md-4">
+								<div class="thumbnail">
+								<a href="#" target="_blank">
+									<img src="../resorces/이미지자료/02_영화/공포,스릴러영화/콘크리트유토피아.jpg" alt="Nature" style="width:100%">
+									<div class="caption">
+										<p>콘크리트 유토피아</p>
+										<pre>예매율 : 25.4%</pre>
+									</div>
+								</a>
+								</div>
 							</div>
-						  </a>
-						</div>
-					  </div>
-					  <!-- //포스터, 설명글 2 끝 -->
-					  <!-- 포스터, 설명글 3 시작 -->
-					  <div class="col-md-4">
-						<div class="thumbnail">
-						  <a href="#" target="_blank">
-							<img src="../resorces/이미지자료/02_영화/로맨스영화/가장보통의연애.jpg" alt="Fjords" style="width:100%">
-							<div class="caption">
-								<p>가장 보통의 연애</p>
-								<pre>예매율 : 8.4%</pre>
+							<!-- //포스터, 설명글 2 끝 -->
+							<!-- 포스터, 설명글 3 시작 -->
+							<div class="col-md-4">
+								<div class="thumbnail">
+								<a href="#" target="_blank">
+									<img src="../resorces/이미지자료/02_영화/로맨스영화/가장보통의연애.jpg" alt="Fjords" style="width:100%">
+									<div class="caption">
+										<p>가장 보통의 연애</p>
+										<pre>예매율 : 8.4%</pre>
+									</div>
+								</a>
+								</div>
 							</div>
-						  </a>
-						</div>
-					  </div>
-					  <!-- //포스터, 설명글 3 끝 -->
-					  <!-- 포스터, 설명글 4 시작 -->
-					  <div class="col-md-4">
-						<div class="thumbnail">
-						  <a href="#" target="_blank">
-							<img src="../resorces/이미지자료/02_영화/코미디영화/극한직업.jpg" alt="Fjords" style="width:100%">
-							<div class="caption">
-								<p>극한직업</p>
-								<pre>예매율 : 5.2%</pre>
+							<!-- //포스터, 설명글 3 끝 -->
+							<!-- 포스터, 설명글 4 시작 -->
+							<div class="col-md-4">
+								<div class="thumbnail">
+								<a href="#" target="_blank">
+									<img src="../resorces/이미지자료/02_영화/코미디영화/극한직업.jpg" alt="Fjords" style="width:100%">
+									<div class="caption">
+										<p>극한직업</p>
+										<pre>예매율 : 5.2%</pre>
+									</div>
+								</a>
+								</div>
 							</div>
-						  </a>
-						</div>
-					  </div>
-					  <!-- //포스터, 설명글 4 끝 -->
-					  <!-- 포스터, 설명글 5 시작 -->
-					  <div class="col-md-4">
-						<div class="thumbnail">
-						  <a href="#" target="_blank">
-							<img src="../resorces/이미지자료/02_영화/액션영화/오펜하이머.jpg" alt="Fjords" style="width:100%">
-							<div class="caption">
-								<p>오펜하이머</p>
-								<pre>예매율 : 5.1%</pre>
+							<!-- //포스터, 설명글 4 끝 -->
+							<!-- 포스터, 설명글 5 시작 -->
+							<div class="col-md-4">
+								<div class="thumbnail">
+								<a href="#" target="_blank">
+									<img src="../resorces/이미지자료/02_영화/액션영화/오펜하이머.jpg" alt="Fjords" style="width:100%">
+									<div class="caption">
+										<p>오펜하이머</p>
+										<pre>예매율 : 5.1%</pre>
+									</div>
+								</a>
+								</div>
 							</div>
-						  </a>
-						</div>
-					  </div>
-					  <!-- //포스터, 설명글 5 끝 -->
-					  <!-- 포스터, 설명글 6 시작 -->
-					  <div class="col-md-4">
-						<div class="thumbnail">
-						  <a href="#" target="_blank">
-							<img src="../resorces/이미지자료/02_영화/공포,스릴러영화/메가로돈2.jpg" alt="Fjords" style="width:100%">
-							<div class="caption">
-								<p>메가로돈2</p>
-								<pre>예매율 : 4.0%</pre>
+							<!-- //포스터, 설명글 5 끝 -->
+							<!-- 포스터, 설명글 6 시작 -->
+							<div class="col-md-4">
+								<div class="thumbnail">
+								<a href="#" target="_blank">
+									<img src="../resorces/이미지자료/02_영화/공포,스릴러영화/메가로돈2.jpg" alt="Fjords" style="width:100%">
+									<div class="caption">
+										<p>메가로돈2</p>
+										<pre>예매율 : 4.0%</pre>
+									</div>
+								</a>
+								</div>
 							</div>
-						  </a>
-						</div>
-					  </div>
-					  <!-- //포스터, 설명글 6 끝 -->
-					  <!-- 포스터, 설명글 7 시작 -->
-					  <div class="col-md-4">
-						<div class="thumbnail">
-						  <a href="#" target="_blank">
-							<img src="../resorces/이미지자료/02_영화/코미디영화/마야3.jpg" alt="Fjords" style="width:100%">
-							<div class="caption">
-								<p>마야3</p>
-								<pre>예매율 : 3.4%</pre>
+							<!-- //포스터, 설명글 6 끝 -->
+							<!-- 포스터, 설명글 7 시작 -->
+							<div class="col-md-4">
+								<div class="thumbnail">
+								<a href="#" target="_blank">
+									<img src="../resorces/이미지자료/02_영화/코미디영화/마야3.jpg" alt="Fjords" style="width:100%">
+									<div class="caption">
+										<p>마야3</p>
+										<pre>예매율 : 3.4%</pre>
+									</div>
+								</a>
+								</div>
 							</div>
-						  </a>
-						</div>
-					  </div>
-					  <!-- //포스터, 설명글 7 끝 -->
-					  <!-- 포스터, 설명글 8 시작 -->
-					  <div class="col-md-4">
-						<div class="thumbnail">
-						  <a href="#" target="_blank">
-							<img src="../resorces/이미지자료/02_영화/로맨스영화/너의결혼식.jpg" alt="Fjords" style="width:100%">
-							<div class="caption">
-								<p>너의 결혼식</p>
-								<pre>예매율 : 2.9%</pre>
+							<!-- //포스터, 설명글 7 끝 -->
+							<!-- 포스터, 설명글 8 시작 -->
+							<div class="col-md-4">
+								<div class="thumbnail">
+								<a href="#" target="_blank">
+									<img src="../resorces/이미지자료/02_영화/로맨스영화/너의결혼식.jpg" alt="Fjords" style="width:100%">
+									<div class="caption">
+										<p>너의 결혼식</p>
+										<pre>예매율 : 2.9%</pre>
+									</div>
+								</a>
+								</div>
 							</div>
-						  </a>
-						</div>
-					  </div>
-					  <!-- //포스터, 설명글 8 끝 -->
-					  <!-- 포스터, 설명글 9 시작 -->
-					  <div class="col-md-4">
-						<div class="thumbnail">
-						  <a href="#" target="_blank">
-							<img src="../resorces/이미지자료/02_영화/로맨스영화/엘리멘탈.jpg" alt="Fjords" style="width:100%">
-							<div class="caption">
-								<p>엘리멘탈</p>
-								<pre>예매율 : 2.4%</pre>
+							<!-- //포스터, 설명글 8 끝 -->
+							<!-- 포스터, 설명글 9 시작 -->
+							<div class="col-md-4">
+								<div class="thumbnail">
+								<a href="#" target="_blank">
+									<img src="../resorces/이미지자료/02_영화/로맨스영화/엘리멘탈.jpg" alt="Fjords" style="width:100%">
+									<div class="caption">
+										<p>엘리멘탈</p>
+										<pre>예매율 : 2.4%</pre>
+									</div>
+								</a>
+								</div>
 							</div>
-						  </a>
-						</div>
-					  </div>
-					  <!-- //포스터, 설명글 9 끝 -->
-					  <!-- 포스터, 설명글 10 시작 -->
-					  <div class="col-md-4">
-						<div class="thumbnail">
-						  <a href="#" target="_blank">
-							<img src="../resorces/이미지자료/02_영화/공포,스릴러영화/추격자.jpg" alt="Fjords" style="width:100%">
-							<div class="caption">
-								<p>추격자</p>
-								<pre>예매율 : 2.3%</pre>
+							<!-- //포스터, 설명글 9 끝 -->
+							<!-- 포스터, 설명글 10 시작 -->
+							<div class="col-md-4">
+								<div class="thumbnail">
+								<a href="#" target="_blank">
+									<img src="../resorces/이미지자료/02_영화/공포,스릴러영화/추격자.jpg" alt="Fjords" style="width:100%">
+									<div class="caption">
+										<p>추격자</p>
+										<pre>예매율 : 2.3%</pre>
+									</div>
+								</a>
+								</div>
 							</div>
-						  </a>
-						</div>
-					  </div>
-					  <!-- //포스터, 설명글 10 끝 -->
-					  <!-- 포스터, 설명글 11 시작 -->
-					  <div class="col-md-4">
-						<div class="thumbnail">
-						  <a href="#" target="_blank">
-							<img src="../resorces/이미지자료/02_영화/로맨스영화/어바웃타임.jpg" alt="Fjords" style="width:100%">
-							<div class="caption">
-								<p>어바웃타임</p>
-								<pre>예매율 : 1.4%</pre>
+							<!-- //포스터, 설명글 10 끝 -->
+							<!-- 포스터, 설명글 11 시작 -->
+							<div class="col-md-4">
+								<div class="thumbnail">
+								<a href="#" target="_blank">
+									<img src="../resorces/이미지자료/02_영화/로맨스영화/어바웃타임.jpg" alt="Fjords" style="width:100%">
+									<div class="caption">
+										<p>어바웃타임</p>
+										<pre>예매율 : 1.4%</pre>
+									</div>
+								</a>
+								</div>
 							</div>
-						  </a>
-						</div>
-					  </div>
-					  <!-- //포스터, 설명글 11 끝 -->
-					  <!-- 포스터, 설명글 12 시작 -->
-					  <div class="col-md-4">
-						<div class="thumbnail">
-						  <a href="#" target="_blank">
-							<img src="../resorces/이미지자료/02_영화/코미디영화/바비.jpg" alt="Fjords" style="width:100%">
-							<div class="caption">
-								<p>바비</p>
-								<pre>예매율 : 0.8%</pre>
+							<!-- //포스터, 설명글 11 끝 -->
+							<!-- 포스터, 설명글 12 시작 -->
+							<div class="col-md-4">
+								<div class="thumbnail">
+								<a href="#" target="_blank">
+									<img src="../resorces/이미지자료/02_영화/코미디영화/바비.jpg" alt="Fjords" style="width:100%">
+									<div class="caption">
+										<p>바비</p>
+										<pre>예매율 : 0.8%</pre>
+									</div>
+								</a>
+								</div>
 							</div>
-						  </a>
-						</div>
-					  </div>
-					  <!-- //포스터, 설명글 12 끝 -->
+							<!-- //포스터, 설명글 12 끝 -->
 
-					</div>
-					<!-- //전체 포스터 끝 -->
+                        </div>
+                        <!-- //전체 포스터 끝 -->
 
-				</div>
-				<!-- //현재 상영작 끝 -->
+                    </div>
+                    <!-- //현재 상영작 끝 -->
 
-				<!-- 광고 배너 시작 -->
-				<div id="ad">
-					<a href="#"><img src="../resorces/이미지자료/광고배너.jpg"></a>
-				</div>
-				<!-- //광고 배너 끝 -->
+                    <!-- 광고 배너 시작 -->
+                    <div id="ad">
+                        <a href="<%= contextPath %>/views/payment/paymentView.jsp"><img src="../resorces/이미지자료/광고배너.jpg"></a>
+                    </div>
+                    <!-- //광고 배너 끝 -->
 
-			
-			<!-- //윤관현 끝 -->
-				
-		
-		<!-- 내용물 넣을 수 있는 구간 끝 -->
-		<!-- 바디 끝 -->
-
-		<br>
-	</div>
+                </div>
+                <!-- //윤관현 끝 -->
 	
 	<%@ include file = "../../common/footer.jsp" %>
 </body>

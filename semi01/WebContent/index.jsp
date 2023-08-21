@@ -8,12 +8,12 @@
 <link href="resources/image/logo2.png" rel="shortcut icon" type="image/x-icon">
 <style>
 	.outer {
-		height: 1000px;
+		height: 500px;
 	}
 </style>
 </head>
 <body>
-	<%@ include file = "../views/common/header.jsp" %>
+	<%@ include file = "/views/common/header.jsp" %>
 	
 	<div class="outer">
 		<br>
@@ -21,6 +21,6 @@
 		<br>
 	</div>
 	
-	<%@ include file = "../views/common/footer.jsp" %>
+	<%@ include file = "/views/common/footer.jsp" %>
 </body>
 </html>

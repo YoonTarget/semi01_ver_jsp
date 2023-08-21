@@ -8,8 +8,6 @@
 <head>
 <meta charset="UTF-8">
 <title>티켓딱대</title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <style>
     /* 기본 세팅 존 */
 
@@ -262,13 +260,25 @@
             <div class="util"> <!-- 유틸 부분 (로긴..)-->
                 <div class="util_inner">
                     <div class="left"></div>
+                    <!-- 로그인 전 화면 -->
                     <div class="right" >
                         <div class="login">
                             <a href="#" class="header_util_link" >로그인</a>
                         </div>
                         <div class="check">
-                            <a href="#" class="header_util_link">예매확인/취소</a>
+                            <a href="#" class="header_util_link" onclick="book();">예매확인/취소</a>
                         </div>
+
+                        <script>
+
+                            function book() {
+                                
+                                alert("로그인 후에 이용 가능합니다.");
+
+                            }
+
+                        </script>
+
                         <div class="sin">
                             <a href="#" class="header_util_link">회원가입</a>
                         </div>
@@ -276,6 +286,26 @@
                             <a href="#" class="header_util_link">고객센터</a>
                         </div>
                     </div>
+
+                    <!-- 로그인 후 화면 -->
+                    <!-- <div class="right" >
+                        <div class="login">
+                            <a href="#" class="header_util_link" >로그아웃</a>
+                        </div>
+
+                        <div class="check">
+                            <a href="#" class="header_util_link">예매확인/취소</a>
+                        </div>
+
+                        <div class="sin">
+                            <a href="#" class="header_util_link">마이페이지</a>
+                        </div>
+
+                        <div class="contact">
+                            <a href="#" class="header_util_link">고객센터</a>
+                        </div>
+                    </div> -->
+
                 </div>
             </div>
 
@@ -304,7 +334,7 @@
             <div class="header_gnb">  <!-- 해더 네비게이터 -->
                 <div id="navigator"> <!-- 네비게이터 기본 틀-->
                     <ul id="navi" > <!-- 카테고리-->
-                        <li><a href="#" >홈</a>
+                        <li><a href="<%= contextPath %>" >홈</a>
                         </li>
                         <li><a href="<%= contextPath %>/views/category/movie/movieMain.jsp" style="color: red;">영화</a>
                             <ul>
@@ -354,7 +384,8 @@
                 </div>
 
             </div>
-
+        </div>    
+    </div>
             
             
             
