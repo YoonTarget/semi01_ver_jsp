@@ -5,13 +5,13 @@
 <head>
 <meta charset="UTF-8">
 <title>티켓딱대</title>
-<link href="../../../resources/image/logo2.png" rel="shortcut icon" type="image/x-icon">
+<link href="../../resources/image/logo2.png" rel="shortcut icon" type="image/x-icon">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <style>
 	.page_heading{
             /* border: 1px solid red; */
-            margin: auto;
+            /* margin: auto; */
             width: 1120px;
             height: 65px;
             margin-top: 20px;
@@ -21,6 +21,7 @@
             float: left;
             height: 100%;
             box-sizing: border-box;
+            /* border: 1px solid red; */
         }
         .page_title{
             /* border: 2px solid pink; */
@@ -40,7 +41,7 @@
         /* 버튼 */
         .common_tab_list{
             width: 500px;
-            
+            /* border: 1px solid red; */
         }
         .common_tab_list *{
         float: left;
@@ -57,6 +58,7 @@
         background-color: white;
         font-weight: 800;
         border: 0;
+        /* border: 1px solid red; */
         }
         .common_tab.type_underline, .common_tab_btn[aria-selected="true"]::before {
         position: absolute;
@@ -81,6 +83,7 @@
             height: 70%;
             margin-top: 20px;
             margin-left: 750px;
+            /* border: 1px solid red; */
         }
         /* 버튼 끝 */
         /* 바디 메인 */
@@ -90,7 +93,7 @@
             /* border: 1px solid red; */
             /* background-color: lightgray; */
             height: 3200px;
-            width: 65%;
+            width: 63%;
             margin: auto;
         }
         .yoontarget>div {
@@ -138,6 +141,7 @@
         .movieHead {
             font-weight: bold;
             font-size: 25px;
+            /* border: 1px solid red; */
         }
         .movieHead>a {
             color: black;
@@ -208,7 +212,7 @@
 </style>
 </head>
 <body>
-	<%@ include file = "../../common/header.jsp" %>
+	<%@ include file = "../common/header.jsp" %>
 	
 	<!-- 내용 넣을 수 있는 구간 시작 -->
                 
@@ -560,6 +564,6 @@
                 </div>
                 <!-- //윤관현 끝 -->
 	
-	<%@ include file = "../../common/footer.jsp" %>
+	<%@ include file = "../common/footer.jsp" %>
 </body>
 </html>

@@ -8,6 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>티켓딱대</title>
+<link href="../../resources/image/logo2.png" rel="shortcut icon" type="image/x-icon">
 <style>
     /* 기본 세팅 존 */
 
@@ -52,15 +53,17 @@
         width: 100%;
         height: 37px;
     
-        background-color: rgb(241, 241, 241);
+        /* background-color: rgb(241, 241, 241); */
+        background-color: #f8f8f8;
         }
            
     .util_inner{ /* 배경색 주기위한 디브*/
         /* border: 1px solid yellow; */
        
-        margin: auto;
+        /* margin: auto; */
         width: 1120px;
         height: 37px;
+        margin-left: 450px;
     }
     /* 유틸난 나누는 디브 */
     .util_inner>div{
@@ -70,10 +73,10 @@
         float: left;
     }
     .left{
-        width: 65%;
+        width: 60%;
     }
     .right{
-        width: 35%;
+        width: 40%;
     }
     /* 오른쪽 내용물 */
     .right>div{
@@ -146,7 +149,7 @@
     /* 네비게이터 */
 
     .header_gnb { /* 내비게이터 배경 */
-    /* border: 1px solid orangered; */
+    /* border: 1px solid blue; */
     position: relative;
     border-top: 1px solid #ecedf2;
     border-bottom: 1px solid #242428;
@@ -155,19 +158,20 @@
     margin: auto;
     }
     #navigator{
-        width: 1120px;
+        width: 1200px;
         height: 40px; 
         margin: auto;
         padding-top: 10px;
-        margin-left: 340px;
+        margin-left: 350px;
+        /* border: 1px solid red; */
     }
     #navi{
         list-style-type: none;
         padding: 0;
         margin: 0;
         height: 100%;
-        width: 70%;
-        /* border: 1px solid black; */
+        width: 75%;
+        /* border: 1px solid blue; */
         float: left;
         box-sizing: border-box;
     }
@@ -212,8 +216,8 @@
     /* 검색 시작 */
     
     .header_search_box {
-        /* border: 1px solid red; */
-        width: 30%;
+        /* border: 1px solid green; */
+        width: 25%;
         height: 100%;
         float: left;
         box-sizing: border-box;
@@ -261,7 +265,7 @@
                 <div class="util_inner">
                     <div class="left"></div>
                     <!-- 로그인 전 화면 -->
-                    <div class="right" >
+                    <!-- <div class="right" >
                         <div class="login">
                             <a href="#" class="header_util_link" >로그인</a>
                         </div>
@@ -285,26 +289,26 @@
                         <div class="contact">
                             <a href="#" class="header_util_link">고객센터</a>
                         </div>
-                    </div>
+                    </div> -->
 
                     <!-- 로그인 후 화면 -->
-                    <!-- <div class="right" >
+                    <div class="right" >
                         <div class="login">
                             <a href="#" class="header_util_link" >로그아웃</a>
                         </div>
 
                         <div class="check">
-                            <a href="#" class="header_util_link">예매확인/취소</a>
+                            <a href="<%= contextPath %>/myTicket.us" class="header_util_link">예매확인/취소</a>
                         </div>
 
                         <div class="sin">
-                            <a href="#" class="header_util_link">마이페이지</a>
+                            <a href="<%= contextPath %>/myPage.us" class="header_util_link">마이페이지</a>
                         </div>
 
                         <div class="contact">
                             <a href="#" class="header_util_link">고객센터</a>
                         </div>
-                    </div> -->
+                    </div>
 
                 </div>
             </div>
@@ -336,7 +340,7 @@
                     <ul id="navi" > <!-- 카테고리-->
                         <li><a href="<%= contextPath %>" >홈</a>
                         </li>
-                        <li><a href="<%= contextPath %>/views/category/movie/movieMain.jsp" style="color: red;">영화</a>
+                        <li><a href="<%= contextPath %>/movie.pr" style="color: red;">영화</a>
                             <ul>
                                 <li><a href="#">로맨스</a></li>
                                 <li><a href="#">공포/스릴러</a></li>

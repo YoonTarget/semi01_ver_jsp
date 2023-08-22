@@ -10,6 +10,15 @@
 	.outer {
 		height: 500px;
 	}
+	.outer div {
+		width: 400px;
+		height: 400px;
+		margin: auto;
+	}
+	.outer img {
+		width: 100%;
+		height: 100%;
+	}
 </style>
 </head>
 <body>
@@ -17,8 +26,11 @@
 	
 	<div class="outer">
 		<br>
-		<h1 align="center">짱구는 못말려</h1>
+		<h1 align="center">신입 지완이</h1>
 		<br>
+		<div>
+			<img src="https://mblogthumb-phinf.pstatic.net/MjAyMjEyMDRfMTE0/MDAxNjcwMTM0MzQxNDc2.hTTF4r_oPoht-e8F-v6ap8ZSheuB9V6kExtYVz9PI-og.eL_di1rsJfgKDDfjGkyEtSCN0EPub2O9rfof926omCUg.JPEG.goms1101/IMG_3390.JPG?type=w800">
+		</div>
 	</div>
 	
 	<%@ include file = "/views/common/footer.jsp" %>
