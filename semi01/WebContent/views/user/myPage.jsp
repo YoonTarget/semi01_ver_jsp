@@ -6,37 +6,43 @@
 <meta charset="UTF-8">
 <title>티켓딱대</title>
 <style>
-    /* 마이티켓 시작 */
+    /* 마이페이지 시작 */
+    div {
+        /* border: 1px solid red; */
+    }
     .background {
         background-color: #f8f8f8;
         height: 800px;
-        border: 1px solid red;
+        /* border: 1px solid red; */
     }
     .outer {
-        border: 1px solid red;
+        /* border: 1px solid red; */
         /* background-color: #f8f8f8; */
         /* background-color: #f8f8f8; */
         width: 50%;
         height: 100%;
         margin: auto;
     }
-    #myPage-head {
+    #myPage-header {
         width: 100%;
-        height: 20%;
-        border: 1px solid red;
+        height: 15%;
+        /* border: 1px solid red; */
         text-align: center;
+        padding-top: 10px;
     }
-    #myPage-head>img {
-        width: 35%;
-        height: 100%;
+    #myPage-header>img {
+        width: 200px;
+        height: 100px;
     }
     #myPage-body {
         width: 100%;
         height: 80%;
-        border: 1px solid red;
         background-color: white;
-        /* background-color: #f8f8f8; */
-        /* background-color: white; */
+        border-radius: 20px;
+    }
+    #myPage-footer {
+        width: 100%;
+        height: 5%;
     }
     .float {
         float: left;
@@ -44,35 +50,84 @@
     }
     #left {
         width: 20%;
-        border: 1px solid red;
+        padding-top: 40px;
+        border-right: 2px solid #f8f8f8;
+        /* border: 1px solid red; */
     }
-    #top {
+    .tab {
         width: 100%;
-        height: 20%;
-        border: 1px solid red;
+        height: 10%;
+        text-align: center;
+        line-height: 5;
+        font-size: 14px;
+        color: #202020;
+        /* border: 1px solid red; */
     }
-    #bottom {
-        width: 100%;
-        height: 80%;
-        border: 1px solid red;
+    .tab:hover {
+        cursor: pointer;
+        opacity: 0.5;
+    }
+    .tab-inner {
+        display: none;
+        text-align: center;
+        line-height: 2;
+        font-size: 12px;
+        color: #707070;
+    }
+    .tab-inner:hover {
+        cursor: pointer;
+        opacity: 0.5;
     }
     #right {
         width: 80%;
-        border: 1px solid red;
+        /* border: 1px solid red; */
     }
-    #right>* {
+    #right-top {
         width: 100%;
-        border: 1px solid red;
+        height: 15%;
+        /* border: 1px solid red; */
+    }
+    #right-bottom {
+        width: 100%;
+        height: 85%;
+        /* border: 1px solid red; */
     }
     #myPage-title {
-        font-weight: bold;
-        height: 20%;
-        line-height: 10px;
+        /* border: 1px solid red; */
+        width: 80%;
+        height: 100%;
+        margin: auto;
+        border-bottom: 2px solid #8c8c8c;
+    }
+    #myPage-title>h2 {
+        color: #202020;
+        font-weight: normal;
+        line-height: 7;
+        /* border: 1px solid red; */
     }
     #myPage-content {
-        height: 80%;
+        width: 80%;
+        height: 100%;
+        margin: auto;
+        /* border: 1px solid red; */
+        line-height: 3;
     }
-    /* //마이티켓 끝 */
+    .form-title {
+        color: #707070;
+        font-size: 15px;
+    }
+    .form-content>input {
+        color: #202020;
+        font-size: 14px;
+        /* border-style: none; */
+    }
+    button {
+        background-color: #f8f8f8;
+        color: #8c8c8c;
+        border-color: #f8f8f8;
+        border-radius: 5px;
+    }
+    /* //마이페이지 끝 */
 </style>
 </head>
 <body>
@@ -82,7 +137,7 @@
 
         <div class="outer">
     
-            <div id="myPage-head">
+            <div id="myPage-header">
                 <img src="resources/image/goldenLogo.png">
             </div>
     
@@ -90,107 +145,148 @@
                 
                 <div id="left" class="float">
 
-                    <div id="top">
-
-                    </div>
-                    <div id="bottom">
-
-                    </div>
+                    <div class="tab">마이페이지</div>
+                    <div class="tab-inner">회원정보변경</div>
+                    <div class="tab-inner">비밀번호변경</div>
+                    <div class="tab-inner">회원탈퇴</div>
+                    <div class="tab">마이티켓</div>
+                    <div class="tab-inner" onclick="myTicket();">예매확인</div>
+                    <div class="tab-inner">예매취소</div>
+                    <div class="tab">마이리뷰</div>
+                    <div class="tab-inner" onclick="myReview();">한줄평조회</div>
+                    <div class="tab-inner">한줄평작성</div>
+                    <div class="tab">마이등급</div>
+                    <div class="tab-inner">등급조회</div>
 
                 </div>
+
+                <script>
+
+                    function myTicket() {
+
+                        location.href = "<%= contextPath %>/myTicket.us";
+
+                    };
+                    
+                    function myReview() {
+
+                        location.href = "<%= contextPath %>/myReview.us";
+
+                    };
+
+                </script>
+
                 <div id="right" class="float">
-                    <h1 id="myPage-title">
-                        마이페이지
-                    </h1>
-                    <form id="myPage-content" action="">
-                        <table id="myPageForm">
-                            <tr>
-                                <th>*아이디</th>
-                                <td colspan="3"><input type="text" name="userId" required value="princessrini" readonly></td>
-                            </tr>
-                            <tr>
-                                <th>비밀번호</th>
-                                <td colspan="3"><input type="password" name="userPwd" required value="riniprincess05"></td>
-                            </tr>
-                            <tr>
-                                <th>*이름</th>
-                                <td colspan="3"><input type="text" name="userName" required value="이리니" readonly></td>
-                            </tr>
-                            <tr>
-                                <th>전화번호</th>
-                                <td colspan="3"><input type="text" name="phone" value="010-1234-5678"></td>
-                            </tr>
-                            <tr>
-                                <th>이메일</th>
-                                <td colspan="3"><input type="email" name="email" value="princessrini@gmail.com"></td>
-                            </tr>
-                            <tr>
-                                <th>*생년월일</th>
-                                <td colspan="3"><input type="number" name="birth" value="970505" readonly></td>
-                            </tr>
-                            <tr>
-                                <th>*등급</th>
-                                <td colspan="3"><input type="text" name="level" value="공주" readonly></td>
-                            </tr>
-                            <tr>
-                                <th rowspan="3">관심있는 태그</th>
-                                <td>
-                                    <td>
-                                        [영화]
-                                    </td>
-                                    <td>
-                                        <select name="interest_movie">
-                                            <option value="1">로맨스</option>
-                                            <option value="2">공포/스릴러</option>
-                                            <option value="3">코미디</option>
-                                            <option value="4">액션</option>
-                                        </select>
-                                    </td>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <td>
-                                        [전시]
-                                    </td>
-                                    <td>
-                                        <select name="interest_display">
-                                            <option value="5">그림전시</option>
-                                            <option value="6">작품전시</option>
-                                            <option value="7">사진전시</option>
-                                            <option value="8">체험전시</option>
-                                        </select>
-                                    </td>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <td>
-                                        [공연]
-                                    </td>
-                                    <td>
-                                        <select name="interest_show">
-                                            <option value="9">뮤지컬</option>
-                                            <option value="10">연극</option>
-                                            <option value="11">클래식</option>
-                                            <option value="12">콘서트</option>
-                                        </select>
-                                    </td>
-                                </td>
-                            </tr>
-                        </table>
-                        
-                        <button type="submit">정보변경</button>
-                        <button type="button">비밀번호 변경</button>
-                        <button type="button">회원탈퇴</button>
-                    </form>
+                    <div id="right-top">
+                        <div id="myPage-title">
+                            <h2>
+                                마이페이지
+                            </h2>
+                        </div>
+                    </div>
+                    
+                    <div id="right-bottom">
+                        <div id="myPage-content">
+                            <form action="#">
+                                <table id="myPageForm">
+                                    <tr>
+                                        <td class="form-title">*아이디</td>
+                                        <td colspan="3" class="form-content">user01</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="form-title">이름</td>
+                                        <td colspan="3" class="form-content"><input type="text" name="userName" required value="홍길동"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="form-title">전화번호</td>
+                                        <td colspan="3" class="form-content"><input type="text" name="phone" value="010-1234-5678"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="form-title">이메일</td>
+                                        <td colspan="3" class="form-content"><input type="email" name="email" value="user01@gmail.com"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="form-title">*생년월일</td>
+                                        <td colspan="3" class="form-content">990101</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="form-title">*등급</td>
+                                        <td colspan="3" class="form-content">아이언</td>
+                                    </tr>
+                                    <tr>
+                                        <td rowspan="3" class="form-title">관심있는 태그</td>
+                                        <td>
+                                            <td>
+                                                [영화]
+                                            </td>
+                                            <td>
+                                                <select name="interest_movie">
+                                                    <option value="1" selected>로맨스</option>
+                                                    <option value="2">공포/스릴러</option>
+                                                    <option value="3">코미디</option>
+                                                    <option value="4">액션</option>
+                                                </select>
+                                            </td>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <td>
+                                                [전시]
+                                            </td>
+                                            <td>
+                                                <select name="interest_display">
+                                                    <option value="5">그림전시</option>
+                                                    <option value="6">작품전시</option>
+                                                    <option value="7" selected>사진전시</option>
+                                                    <option value="8">체험전시</option>
+                                                </select>
+                                            </td>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <td>
+                                                [공연]
+                                            </td>
+                                            <td>
+                                                <select name="interest_show">
+                                                    <option value="9">뮤지컬</option>
+                                                    <option value="10" selected>연극</option>
+                                                    <option value="11">클래식</option>
+                                                    <option value="12">콘서트</option>
+                                                </select>
+                                            </td>
+                                        </td>
+                                    </tr>
+                                </table>
+                                
+                                <div align="center">
+                                    <button type="submit">정보변경</button>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
                 </div>
 
             </div>
+
+            <div id="myPage-footer"></div>
     
         </div>
 
     </div>
+
+    <script>
+
+        $(".tab").click(function() {
+
+            $(this).nextUntil(".tab").slideToggle();
+
+        });
+
+    </script>
 
     <%@ include file = "../common/footer.jsp" %>
 </body>

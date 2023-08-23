@@ -8,6 +8,8 @@
 <head>
 <meta charset="UTF-8">
 <title>티켓딱대</title>
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 <link href="../../resources/image/logo2.png" rel="shortcut icon" type="image/x-icon">
 <style>
     /* 기본 세팅 존 */
