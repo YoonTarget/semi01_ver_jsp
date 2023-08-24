@@ -133,6 +133,12 @@
     .content-text {
         width: 60%;
     }
+    .content-text>table {
+    	line-height: 2.5;
+    }
+    .content-text a:hover {
+    	opacity: 0.5;
+    }
     .content-delete {
         width: 10%;
         text-align: right;
@@ -140,6 +146,10 @@
     .content-delete>button {
         background-color: white;
         border-color: white;
+    }
+    .content-delete>button:hover {
+    	cursor: pointer;
+    	opacity: 0.5;
     }
     .form-title {
         color: #707070;
@@ -208,11 +218,11 @@
                                 <table>
                                     <tr>
                                         <th colspan="3">
-                                            <h2>짱구는 못말려 : 불고기 로드</h2>
+                                            <h2>짱구는 못말려 : 우비짱구의 대모험</h2>
                                         </th>
                                     </tr>
                                     <tr>
-                                        <td width="50" style="color: #707070;">user01</td>
+                                        <td width="50" style="color: #707070;">us**01</td>
                                         <td style="color: #8c8c8c;">|</td>
                                         <td style="color: #707070;">2023-08-24</td>
                                     </tr>
@@ -220,6 +230,11 @@
                                         <td colspan="3">
                                             <p>너무너무 재미있었어요!!</p>
                                         </td>
+                                    </tr>
+                                    <tr>
+                                    	<td colspan="3">
+                                    		<a href="#">수정하기</a>
+                                    	</td>
                                     </tr>
                                 </table>
                             </div>
@@ -242,14 +257,19 @@
                                         </th>
                                     </tr>
                                     <tr>
-                                        <td width="50" style="color: #707070;">user02</td>
+                                        <td width="50" style="color: #707070;">us**01</td>
                                         <td style="color: #8c8c8c;">|</td>
-                                        <td style="color: #707070;">2023-08-27</td>
+                                        <td style="color: #707070;">2023-07-27</td>
                                     </tr>
                                     <tr>
                                         <td colspan="3">
                                             <p>인생작입니다. 강추!!</p>
                                         </td>
+                                    </tr>
+                                    <tr>
+                                    	<td colspan="3">
+                                    		<a href="#">수정하기</a>
+                                    	</td>
                                     </tr>
                                 </table>
                             </div>
