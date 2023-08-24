@@ -108,57 +108,36 @@
         line-height: 6;
         /* border: 1px solid red; */
     }
+    #myReview-title>h4>span {
+        color: #202020;
+        font-size: 15px;
+    }
     .myReview-content {
         width: 80%;
-        height: 200px;
+        height: 300px;
         margin: auto;
-        /* border: 1px solid red; */
         line-height: 3;
-        border-bottom: 1px solid #ceccc0;
         padding-top: 10px;
         padding-bottom: 10px;
+        margin-top: 20px;
+        /* border: 1px solid red; */
     }
     .myReview-content div {
-        height: 100%;
-        float: left;
+        width: 100%;
     }
-    .content-img {
-        width: 30%;
-        padding-right: 10px;
+    #content-title {
+        height: 20%;
+        padding-top: 10px;
     }
-    .content-img>a {
+    #content-text {
+        padding-top: 10px;
+        height: 80%;
+    }
+    #content-text>textarea {
         width: 100%;
         height: 100%;
-    }
-    .content-img>a>img {
-        width: 100%;
-        height: 100%;
-    }
-    .content-img>a>img:hover {
-        width: 100%;
-        height: 100%;
-        opacity: 0.7;
-    }
-    .content-text {
-        width: 60%;
-    }
-    .content-text>table {
-    	line-height: 4;
-    }
-    .content-text a:hover {
-    	opacity: 0.5;
-    }
-    .content-delete {
-        width: 10%;
-        text-align: right;
-    }
-    .content-delete>button {
-        background-color: white;
-        border-color: white;
-    }
-    .content-delete>button:hover {
-    	cursor: pointer;
-    	opacity: 0.5;
+        resize: none;
+        border: 1px solid #ceccc0;
     }
     .form-title {
         color: #707070;
@@ -262,97 +241,27 @@
                     <div id="right-top">
                         <div id="myReview-title">
                             <h4>
-                                마이리뷰
+                                마이리뷰 <span>한줄평 수정</span>
                             </h4>
                         </div>
                     </div>
                     
                     <div id="right-bottom">
 
-                        <div class="myReview-content">
+                        <div class="myReview-content" align="center">
                             
-                            <div class="content-img">
-                                <a href="#"><img src="resources/image/우비짱구.jpg"></a>
-                            </div>
-                            <div class="content-text">
-                                <table>
-                                    <tr>
-                                        <th colspan="3">
-                                            <h5>짱구는 못말려 : 우비짱구의 대모험</h5>
-                                        </th>
-                                    </tr>
-                                    <tr>
-                                        <td width="50" style="color: #707070;">us**01</td>
-                                        <td style="color: #8c8c8c;">|</td>
-                                        <td style="color: #707070;">2023-08-24</td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="3">
-                                            <p>너무너무 재미있었어요!!</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                    	<td colspan="3">
-                                    		<a href="#">수정하기</a>
-                                    	</td>
-                                    </tr>
-                                </table>
-                            </div>
+                            <form action="#" method="post">
 
-                            <div class="content-delete">
-                                <button class="close" onclick="return ReviewDelete();">X</button>
-                            </div>
+                                <div id="content-title">
+                                    <h4>짱구는 못말려 : 우비짱구의 대모험</h4>
+                                </div>
+                                <div id="content-text">
+                                    <textarea name="reviewContent"></textarea>
+                                </div>
+                                <button>작성완료</button>
 
-                            <script>
-
-                                function ReviewDelete() {
-        
-                                    if(confirm("작성한 한줄평을 삭제하시겠습니까?")) {
-                                        location.href = "#";
-                                    }
-                                    else {
-                                        return false;
-                                    }
-        
-                                }
-        
-                            </script>
-
-                        </div>
-
-                        <div class="myReview-content">
+                            </form>
                             
-                            <div class="content-img">
-                                <a href="#"><img src="resources/image/회사원짱구.png"></a>
-                            </div>
-                            <div class="content-text">
-                                <table>
-                                    <tr>
-                                        <th colspan="3">
-                                            <h5>짱구는 못말려 : 신입사원이 된 짱구</h5>
-                                        </th>
-                                    </tr>
-                                    <tr>
-                                        <td width="50" style="color: #707070;">us**01</td>
-                                        <td style="color: #8c8c8c;">|</td>
-                                        <td style="color: #707070;">2023-07-27</td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="3">
-                                            <p>인생작입니다. 강추!!</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                    	<td colspan="3">
-                                    		<a href="<%= contextPath %>/updateReview.us">수정하기</a>
-                                    	</td>
-                                    </tr>
-                                </table>
-                            </div>
-                            <div class="content-delete">
-                                <button class="close" onclick="return ReviewDelete();">X</button>
-                            </div>
-
                         </div>
 
                     </div>

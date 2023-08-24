@@ -99,10 +99,10 @@
         margin: auto;
         border-bottom: 2px solid #8c8c8c;
     }
-    #myTicket-title>h2 {
+    #myTicket-title>h4 {
         color: #202020;
         font-weight: normal;
-        line-height: 7;
+        line-height: 6;
         /* border: 1px solid red; */
     }
     #myTicket-content {
@@ -162,9 +162,9 @@
                 <div id="right" class="float">
                     <div id="right-top">
                         <div id="myTicket-title">
-                            <h2>
+                            <h4>
                                 마이티켓
-                            </h2>
+                            </h4>
                         </div>
                     </div>
                     

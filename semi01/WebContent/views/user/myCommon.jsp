@@ -102,10 +102,10 @@
         margin: auto;
         border-bottom: 2px solid #8c8c8c;
     }
-    #myReview-title>h4 {
+    #myReview-title>h2 {
         color: #202020;
         font-weight: normal;
-        line-height: 6;
+        line-height: 7;
         /* border: 1px solid red; */
     }
     .myReview-content {
@@ -126,24 +126,15 @@
         width: 30%;
         padding-right: 10px;
     }
-    .content-img>a {
+    .content-img>img {
         width: 100%;
         height: 100%;
-    }
-    .content-img>a>img {
-        width: 100%;
-        height: 100%;
-    }
-    .content-img>a>img:hover {
-        width: 100%;
-        height: 100%;
-        opacity: 0.7;
     }
     .content-text {
         width: 60%;
     }
     .content-text>table {
-    	line-height: 4;
+    	line-height: 2.5;
     }
     .content-text a:hover {
     	opacity: 0.5;
@@ -193,67 +184,53 @@
                 
                 <div id="left" class="float">
 
-                    <div class="tab">마이페이지</div>
+                    <div class="tab" onclick="myPage(1);">마이페이지</div>
                     <div class="tab-inner" onclick="myPage(1);">회원정보변경</div>
                     <div class="tab-inner" onclick="myPage(2);">비밀번호변경</div>
                     <div class="tab-inner" onclick="myPage(3);">회원탈퇴</div>
-                    <div class="tab">마이티켓</div>
+                    <div class="tab" onclick="myTicket(1);">마이티켓</div>
                     <div class="tab-inner" onclick="myTicket(1);">예매확인</div>
                     <div class="tab-inner" onclick="myTicket(2);">예매취소</div>
-                    <div class="tab">마이리뷰</div>
+                    <div class="tab" onclick="myReview(1);">마이리뷰</div>
                     <div class="tab-inner" onclick="myReview(1);">한줄평조회</div>
                     <div class="tab-inner" onclick="myReview(2);">한줄평작성</div>
-                    <div class="tab">마이등급</div>
+                    <div class="tab" onclick="myLevel(1);">마이등급</div>
                     <div class="tab-inner" onclick="myLevel(1);">등급조회</div>
 
                 </div>
 
                 <script>
 
-                    $(".tab").click(function() {
-                                
-                        $(this).nextUntil(".tab").slideToggle();
+                    $(function() {
+                        
+                        function myPage(num) {
+                            
+                            switch(num) {
+                                case 1 :
+                                    location.href = "<%= contextPath %>/myPage.us";
+                                    break;
+                                case 2 :
+                                    location.href = "<%= contextPath %>/myPage.us";
+                                    break;
+                                case 3 :
+                                    location.href = "<%= contextPath %>/myPage.us";
+                            }
+
+                        }
+    
+                        function myTicket(num) {
+    
+                        }
+    
+                        function myReview(num) {
+    
+                        }
+    
+                        function myLevel(num) {
+    
+                        }
 
                     });
-
-                    function myPage(num) {
-                        
-                        switch(num) {
-                            case 1 :
-                                location.href = "<%= contextPath %>/myPage.us";
-                                break;
-                            case 2 :
-                                location.href = "<%= contextPath %>/myPage.us";
-                                break;
-                            case 3 :
-                                location.href = "<%= contextPath %>/myPage.us";
-                        }
-
-                    }
-
-                    function myTicket(num) {
-
-                        if(num == 1) {
-                            location.href = "<%= contextPath %>/myTicket.us";
-                        }
-                        else {
-                            location.href = "<%= contextPath %>/myTicket.us";
-                        }
-
-                    }
-
-                    function myReview(num) {
-                        if(num == 1) {
-                            location.href = "<%= contextPath %>/myReview.us";
-                        }
-                        else {
-                            location.href = "<%= contextPath %>/myReview.us";
-                        }
-                    }
-
-                    function myLevel(num) {
-                        location.href = "<%= contextPath %>/myLevel.us";
-                    }   
 
 
                 </script>
@@ -261,9 +238,9 @@
                 <div id="right" class="float">
                     <div id="right-top">
                         <div id="myReview-title">
-                            <h4>
+                            <h2>
                                 마이리뷰
-                            </h4>
+                            </h2>
                         </div>
                     </div>
                     
@@ -272,13 +249,13 @@
                         <div class="myReview-content">
                             
                             <div class="content-img">
-                                <a href="#"><img src="resources/image/우비짱구.jpg"></a>
+                                <img src="resources/image/우비짱구.jpg">
                             </div>
                             <div class="content-text">
                                 <table>
                                     <tr>
                                         <th colspan="3">
-                                            <h5>짱구는 못말려 : 우비짱구의 대모험</h5>
+                                            <h2>짱구는 못말려 : 우비짱구의 대모험</h2>
                                         </th>
                                     </tr>
                                     <tr>
@@ -298,38 +275,22 @@
                                     </tr>
                                 </table>
                             </div>
-
                             <div class="content-delete">
-                                <button class="close" onclick="return ReviewDelete();">X</button>
+                                <button onclick="return ReviewDelete();">X</button>
                             </div>
-
-                            <script>
-
-                                function ReviewDelete() {
-        
-                                    if(confirm("작성한 한줄평을 삭제하시겠습니까?")) {
-                                        location.href = "#";
-                                    }
-                                    else {
-                                        return false;
-                                    }
-        
-                                }
-        
-                            </script>
 
                         </div>
 
                         <div class="myReview-content">
                             
                             <div class="content-img">
-                                <a href="#"><img src="resources/image/회사원짱구.png"></a>
+                                <img src="resources/image/회사원짱구.png">
                             </div>
                             <div class="content-text">
                                 <table>
                                     <tr>
                                         <th colspan="3">
-                                            <h5>짱구는 못말려 : 신입사원이 된 짱구</h5>
+                                            <h2>짱구는 못말려 : 신입사원이 된 짱구</h2>
                                         </th>
                                     </tr>
                                     <tr>
@@ -344,18 +305,33 @@
                                     </tr>
                                     <tr>
                                     	<td colspan="3">
-                                    		<a href="<%= contextPath %>/updateReview.us">수정하기</a>
+                                    		<a href="#">수정하기</a>
                                     	</td>
                                     </tr>
                                 </table>
                             </div>
                             <div class="content-delete">
-                                <button class="close" onclick="return ReviewDelete();">X</button>
+                                <button onclick="return ReviewDelete();">X</button>
                             </div>
 
                         </div>
 
                     </div>
+
+                    <script>
+
+                        function ReviewDelete() {
+
+                            if(confirm("작성한 한줄평을 삭제하시겠습니까?")) {
+                                location.href = "#";
+                            }
+                            else {
+                                return false;
+                            }
+
+                        }
+
+                    </script>
 
                 </div>
 
@@ -366,6 +342,16 @@
         </div>
 
     </div>
+
+    <script>
+
+        $(".tab").click(function() {
+
+            $(this).nextUntil(".tab").slideToggle();
+
+        });
+
+    </script>
 
     <%@ include file = "../common/footer.jsp" %>
 </body>
