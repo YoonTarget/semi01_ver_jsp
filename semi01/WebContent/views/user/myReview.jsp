@@ -8,7 +8,7 @@
 <style>
     /* 마이페이지 시작 */
     div {
-        border: 1px solid red;
+        /* border: 1px solid red; */
     }
     .background {
         background-color: #f8f8f8;
@@ -108,33 +108,36 @@
         line-height: 7;
         /* border: 1px solid red; */
     }
-    #myReview-content {
+    .myReview-content {
         width: 80%;
         height: 200px;
         margin: auto;
         /* border: 1px solid red; */
         line-height: 3;
         border-bottom: 1px solid #ceccc0;
+        padding-top: 10px;
+        padding-bottom: 10px;
     }
-    #myReview-content div {
+    .myReview-content div {
         height: 100%;
         float: left;
     }
-    #content-img {
+    .content-img {
         width: 30%;
+        padding-right: 10px;
     }
-    #content-img>img {
+    .content-img>img {
         width: 100%;
         height: 100%;
     }
-    #content-text {
+    .content-text {
         width: 60%;
     }
-    #content-delete {
+    .content-delete {
         width: 10%;
         text-align: right;
     }
-    #content-delete>button {
+    .content-delete>button {
         background-color: white;
         border-color: white;
     }
@@ -195,36 +198,83 @@
                     </div>
                     
                     <div id="right-bottom">
-                        <div id="myReview-content">
+
+                        <div class="myReview-content">
                             
-                            <div id="content-img">
+                            <div class="content-img">
                                 <img src="resources/image/우비짱구.jpg">
                             </div>
-                            <div id="content-text">
-
+                            <div class="content-text">
+                                <table>
+                                    <tr>
+                                        <th colspan="3">
+                                            <h2>짱구는 못말려 : 불고기 로드</h2>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <td width="50" style="color: #707070;">user01</td>
+                                        <td style="color: #8c8c8c;">|</td>
+                                        <td style="color: #707070;">2023-08-24</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3">
+                                            <p>너무너무 재미있었어요!!</p>
+                                        </td>
+                                    </tr>
+                                </table>
                             </div>
-                            <div id="content-delete">
+                            <div class="content-delete">
                                 <button onclick="return ReviewDelete();">X</button>
                             </div>
 
                         </div>
 
-                            <script>
+                        <div class="myReview-content">
+                            
+                            <div class="content-img">
+                                <img src="resources/image/회사원짱구.png">
+                            </div>
+                            <div class="content-text">
+                                <table>
+                                    <tr>
+                                        <th colspan="3">
+                                            <h2>짱구는 못말려 : 신입사원이 된 짱구</h2>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <td width="50" style="color: #707070;">user02</td>
+                                        <td style="color: #8c8c8c;">|</td>
+                                        <td style="color: #707070;">2023-08-27</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3">
+                                            <p>인생작입니다. 강추!!</p>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="content-delete">
+                                <button onclick="return ReviewDelete();">X</button>
+                            </div>
 
-                                function ReviewDelete() {
-
-                                    if(confirm("작성한 한줄평을 삭제하시겠습니까?")) {
-                                        location.href = "#";
-                                    }
-                                    else {
-                                        return false;
-                                    }
-
-                                }
-
-                            </script>
+                        </div>
 
                     </div>
+
+                    <script>
+
+                        function ReviewDelete() {
+
+                            if(confirm("작성한 한줄평을 삭제하시겠습니까?")) {
+                                location.href = "#";
+                            }
+                            else {
+                                return false;
+                            }
+
+                        }
+
+                    </script>
 
                 </div>
 

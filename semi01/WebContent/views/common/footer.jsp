@@ -13,7 +13,7 @@
         
     }
     .footer{
-        border-top: 1px solid black ;
+        border-top: 1px solid #f8f8f8 ;
     }
     #footer>div{width: 100%;}
 

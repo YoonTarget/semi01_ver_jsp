@@ -154,7 +154,7 @@
     /* border: 1px solid blue; */
     position: relative;
     border-top: 1px solid #ecedf2;
-    border-bottom: 1px solid #242428;
+    border-bottom: 1px solid #f8f8f8;
     width: 100%;
     height: 58px;
     margin: auto;
