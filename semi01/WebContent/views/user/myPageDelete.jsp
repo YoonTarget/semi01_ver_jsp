@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>티켓딱대</title>
 <style>
-    /* 마이티켓 시작 */
+    /* 마이페이지 시작 */
     div {
         /* border: 1px solid red; */
     }
@@ -23,24 +23,24 @@
         height: 100%;
         margin: auto;
     }
-    #myTicket-header {
+    #myPage-header {
         width: 100%;
         height: 15%;
         /* border: 1px solid red; */
         text-align: center;
         padding-top: 10px;
     }
-    #myTicket-header>img {
+    #myPage-header>img {
         width: 200px;
         height: 100px;
     }
-    #myTicket-body {
+    #myPage-body {
         width: 100%;
         height: 80%;
         background-color: white;
-		border-radius: 20px;
+        border-radius: 20px;
     }
-    #myTicket-footer {
+    #myPage-footer {
         width: 100%;
         height: 5%;
     }
@@ -92,85 +92,32 @@
         height: 85%;
         /* border: 1px solid red; */
     }
-    #myTicket-title {
+    #myPage-title {
         /* border: 1px solid red; */
         width: 80%;
         height: 100%;
         margin: auto;
         border-bottom: 2px solid #8c8c8c;
     }
-    #myTicket-title>h4 {
+    #myPage-title>h4 {
         color: #202020;
         font-weight: normal;
         line-height: 6;
         /* border: 1px solid red; */
     }
-    #myTicket-title>h4>span {
+    #myPage-title>h4>span {
         color: #202020;
         font-size: 15px;
     }
-    .myTicket-content {
+    #myPage-content {
         width: 80%;
-        height: 250px;
+        height: 100%;
         margin: auto;
-        /* border: 1px solid blue; */
+        /* border: 1px solid red; */
         line-height: 3;
-        border-bottom: 1px solid #ceccc0;
-        padding-top: 10px;
-        padding-bottom: 10px;
+        margin-top: 10px;
     }
-    .myTicket-content div {
-        height: 100%;
-        float: left;
-    }
-    .content-img {
-        width: 30%;
-        padding-right: 10px;
-    }
-    .content-img>a {
-        width: 100%;
-        height: 100%;
-    }
-    .content-img>a>img {
-        width: 100%;
-        height: 100%;
-    }
-    .content-img>a>img:hover {
-        width: 100%;
-        height: 100%;
-        opacity: 0.7;
-    }
-    .content-text {
-        width: 60%;
-    }
-    .content-text>table {
-    	line-height: 4;
-    }
-    .content-text a:hover {
-    	opacity: 0.5;
-    }
-    .content-delete {
-        width: 10%;
-        text-align: right;
-    }
-    .content-delete>button {
-        background-color: white;
-        border-color: white;
-    }
-    .content-delete>button:hover {
-    	cursor: pointer;
-    	opacity: 0.5;
-    }
-    .form-title {
-        color: #707070;
-        font-size: 15px;
-    }
-    .form-content>input {
-        color: #202020;
-        font-size: 14px;
-        border-style: none;
-    }
-    .myTicket-content button {
+    #myPage-content button {
         margin: 10px;
         display: inline;
         height: 35px;
@@ -185,8 +132,26 @@
         font-size: 13px;
         color: #202020;
     }
-    .myTicket-content button:hover {
+    #myPage-content button:hover {
         opacity: 0.7;
+    }
+    .form-title {
+        color: #707070;
+        font-size: 15px;
+    }
+    .form-content>input {
+        color: #202020;
+        font-size: 14px;
+        /* border-style: none; */
+    }
+    button {
+        background-color: #f8f8f8;
+        color: #8c8c8c;
+        border-color: #f8f8f8;
+        border-radius: 5px;
+    }
+    .modal-body div {
+        text-align: right;
     }
     /* //마이페이지 끝 */
 </style>
@@ -198,11 +163,11 @@
 
         <div class="outer">
     
-            <div id="myTicket-header">
+            <div id="myPage-header">
                 <img src="resources/image/goldenLogo.png">
             </div>
     
-            <div id="myTicket-body">
+            <div id="myPage-body">
                 
                 <div id="left" class="float">
 
@@ -247,74 +212,47 @@
 
                 </script>
 
-
                 <div id="right" class="float">
                     <div id="right-top">
-                        <div id="myTicket-title">
+                        <div id="myPage-title">
                             <h4>
-                                마이티켓 <span>예매조회</span>
+                                마이페이지 <span>회원탈퇴</span>
                             </h4>
                         </div>
                     </div>
                     
                     <div id="right-bottom">
-                        <div class="myTicket-content">
+                        <div id="myPage-content">
+                            <form action="#" method="post">
+                                
+                                <input type="password" name="userPwd" size="50" placeholder="비밀번호를 입력해주세요.">
+                                
+                                <button type="submit" onclick="alertMsg();">회원탈퇴</button>
+                                <button type="button" onclick="history.back();">돌아가기</button>
 
-                            <div class="content-img">
-                                <a href="#"><img src="resources/image/콘크리트유토피아.jpg"></a>
-                            </div>
-
-                            <div class="content-text">
-                                <table>
-                                    <tr>
-                                        <td class="form-title" width="100">공연 제목</td>
-                                        <td class="form-content">콘크리트 유토피아</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="form-title">공연 장소</td>
-                                        <td class="form-content">CGV 고양백석, 1관</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="form-title">공연 일시</td>
-                                        <td class="form-content">2023.08.13 (일) 11:00</td>
-                                    </tr>
-                                    	<td><a href="<%= contextPath %>/ticketDetail.us">상세보기</a></td>
-                                        <td><a href="<%= contextPath %>/reviewWrite.us">한줄평쓰기</a></td>
-                                    </tr>
-                                </table>
-                            </div>
-
-                            <div class="content-delete">
-                                <button class="close" onclick="return ticketDelete();">X</button>
-                            </div>
-
-                            <script>
-
-                                function ticketDelete() {
-        
-                                    if(confirm("예매내역을 삭제하시겠습니까?")) {
-                                        location.href = "#";
-                                    }
-                                    else {
-                                        return false;
-                                    }
-        
-                                }
-        
-                            </script>
-                            
-                        </div>  
-                        
+                            </form>
+                        </div>
                     </div>
+                    
                 </div>
 
             </div>
 
-            <div id="myTicket-footer"></div>
+            <div id="myPage-footer"></div>
     
         </div>
 
     </div>
+
+    <script>
+
+        function alertMsg() {
+
+            alert("그동안 이용해주셔서 감사합니다. 안녕히 가십시오.");
+
+        }
+
+    </script>
 
     <%@ include file = "../common/footer.jsp" %>
 </body>

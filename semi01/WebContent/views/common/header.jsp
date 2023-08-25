@@ -309,7 +309,7 @@
                         </div>
 
                         <div class="check">
-                            <a href="<%= contextPath %>/myTicket.us" class="header_util_link">예매확인/취소</a>
+                            <a href="<%= contextPath %>/myTicket.us" class="header_util_link">예매조회</a>
                         </div>
 
                         <div class="sin">

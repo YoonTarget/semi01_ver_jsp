@@ -105,12 +105,34 @@
         line-height: 6;
         /* border: 1px solid red; */
     }
+    #myPage-title>h4>span {
+        color: #202020;
+        font-size: 15px;
+    }
     #myPage-content {
         width: 80%;
         height: 100%;
         margin: auto;
         /* border: 1px solid red; */
         line-height: 3;
+    }
+    #myPage-content button {
+        margin: 10px;
+        display: inline;
+        height: 35px;
+        padding: 0 12px;
+        line-height: 32px;
+        border-radius: 3px;
+        border: 1px solid #bbb;
+        box-sizing: border-box;
+        background-color: #f9f9f9;
+        text-decoration: none;
+        text-align: center;
+        font-size: 13px;
+        color: #202020;
+    }
+    #myPage-content button:hover {
+        opacity: 0.7;
     }
     .form-title {
         color: #707070;
@@ -126,6 +148,9 @@
         color: #8c8c8c;
         border-color: #f8f8f8;
         border-radius: 5px;
+    }
+    .modal-body div {
+        text-align: right;
     }
     /* //마이페이지 끝 */
 </style>
@@ -146,33 +171,43 @@
                 <div id="left" class="float">
 
                     <div class="tab">마이페이지</div>
-                    <div class="tab-inner">회원정보변경</div>
-                    <div class="tab-inner">비밀번호변경</div>
-                    <div class="tab-inner">회원탈퇴</div>
+                    <div class="tab-inner" onclick="myMenu(1);">회원정보조회</div>
                     <div class="tab">마이티켓</div>
-                    <div class="tab-inner" onclick="myTicket();">예매확인</div>
-                    <div class="tab-inner">예매취소</div>
+                    <div class="tab-inner" onclick="myMenu(2);">예매조회</div>
                     <div class="tab">마이리뷰</div>
-                    <div class="tab-inner" onclick="myReview();">한줄평조회</div>
-                    <div class="tab-inner">한줄평작성</div>
+                    <div class="tab-inner" onclick="myMenu(3);">한줄평조회</div>
+                    <div class="tab-inner" onclick="myMenu(2);">한줄평작성</div>
                     <div class="tab">마이등급</div>
-                    <div class="tab-inner">등급조회</div>
+                    <div class="tab-inner" onclick="myMenu(4);">등급조회</div>
 
                 </div>
 
                 <script>
 
-                    function myTicket() {
+                    $(".tab").click(function() {
+                                
+                        $(this).nextUntil(".tab").slideToggle();
 
-                        location.href = "<%= contextPath %>/myTicket.us";
+                    });
 
-                    };
-                    
-                    function myReview() {
+                    function myMenu(num) {
+                    	
+                    	switch(num) {
+                    	case 1 :
+                    		location.href = "<%= contextPath %>/myPage.us";
+                    		break;
+                    	case 2 :
+                    		location.href = "<%= contextPath %>/myTicket.us";
+                    		break;
+                    	case 3 :
+                    		location.href = "<%= contextPath %>/myReview.us";
+                    		break;
+                    	case 4 :
+                    		location.href = "<%= contextPath %>/myLevel.us";
+                    		
+                    	}
 
-                        location.href = "<%= contextPath %>/myReview.us";
-
-                    };
+                    }
 
                 </script>
 
@@ -180,14 +215,14 @@
                     <div id="right-top">
                         <div id="myPage-title">
                             <h4>
-                                마이페이지
+                                마이페이지 <span>회원정보조회</span>
                             </h4>
                         </div>
                     </div>
                     
                     <div id="right-bottom">
                         <div id="myPage-content">
-                            <form action="#">
+                            <form action="#" method="post">
                                 <table id="myPageForm">
                                     <tr>
                                         <td class="form-title">*아이디</td>
@@ -207,11 +242,11 @@
                                     </tr>
                                     <tr>
                                         <td class="form-title">*생년월일</td>
-                                        <td colspan="3" class="form-content">990101</td>
+                                        <td colspan="3" class="form-content">1999-01-01</td>
                                     </tr>
                                     <tr>
                                         <td class="form-title">*등급</td>
-                                        <td colspan="3" class="form-content">아이언</td>
+                                        <td colspan="3" class="form-content"><a href="<%= contextPath %>/myLevel.us">아이언</a></td>
                                     </tr>
                                     <tr>
                                         <td rowspan="3" class="form-title">관심있는 태그</td>
@@ -262,12 +297,16 @@
                                 </table>
                                 
                                 <div align="center">
-                                    <button type="submit">정보변경</button>
+                                    <button type="submit" onclick="change();">정보변경</button>
+                                    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">비밀번호변경</button>
+                                    <button type="button" onclick="deleteUser();">회원탈퇴</button>
+                                    <!-- <button id="deleteUser" type="button" data-toggle="modal" data-target="#deleteModal" style="display: none;">회원탈퇴</button> -->
                                 </div>
 
                             </form>
                         </div>
                     </div>
+                    
                 </div>
 
             </div>
@@ -278,15 +317,126 @@
 
     </div>
 
+    <!-- 비밀번호 변경용 모달 -->
+    <div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+        <div class="modal-header">
+            <h4 class="modal-title">비밀번호 변경</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+            <form action="#" method="post">
+                <table>
+                    <tr>
+                        <td>현재 비밀번호</td>
+                        <td><input type="password" name="userPwd" required></td>
+                    </tr>
+                    <tr>
+                        <td>변경할 비밀번호</td>
+                        <td><input type="password" name="updatePwd" required></td>
+                    </tr>
+                    <tr>
+                        <td>변경할 비밀번호 확인</td>
+                        <td><input type="password" name="checkPwd" required></td>
+                    </tr>
+                </table>
+
+                <br>
+                <div>
+                    <button type="submit" class="btn btn-sm btn-secondary" onclick="return validatePwd();">비밀번호 변경</button>
+                </div>
+
+                <br><br>
+
+            </form>
+        </div>
+        </div>
+
+    </div>
+    </div>
+
     <script>
 
-        $(".tab").click(function() {
+        function change() {
 
-            $(this).nextUntil(".tab").slideToggle();
+            confirm("변경한 정보를 저장하시겠습니까?");
 
-        });
+        }
 
+        function validatePwd() {
+
+            if($("input[name=updatePwd]").val() != $("input[name=checkPwd]").val()) {
+
+                alert("변경할 비밀번호가 일치하지 않습니다.");
+
+                $("input[name=checkPwd]").val("");
+                $("input[name=checkPwd]").focus();
+
+                return false;
+
+            }
+
+        }
+
+        function deleteUser() {
+
+            if(confirm("탈퇴 후 복구가 불가능합니다. 정말로 탈퇴하시겠습니까?")) {
+
+                location.href = "<%= contextPath %>/deleteUser.us";
+
+            }
+
+        }
+        
     </script>
+
+    <!-- 회원탈퇴용 Modal -->
+	<div class="modal" id="deleteModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+      
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h4 class="modal-title">회원탈퇴</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+      
+            <!-- Modal body -->
+            <div class="modal-body" align="center">
+              <form action="#" method="post">
+                  <b>탈퇴 후 복구가 불가능 합니다. <br> 정말로 탈퇴하시겠습니까? </b> <br><br>
+                  
+                  <!-- 아이디 -->
+                  <!-- sql문과 작업을 할 때 아이디도 필요하기 때문에 type을 hidden으로 줘서 같이 controller로 보낸다 -->
+                  
+                  비밀번호 : <input type="password" name="userPwd" required> <br><br>
+
+                  <button type="submit" class="btn btn-sm btn-danger">탈퇴하기</button>
+                  
+                  <!-- 
+                      회원탈퇴 요청시 sql문
+                      UPDATE MEMBER
+                         SET STATUS = 'N'
+                           , MODIFY_DATE = SYSDATE
+                       WHERE USER_ID = '현재 로그인한 회원 아이디'
+                         AND USER_PWD = '사용자가 입력한 비밀번호'
+                         
+                         (정보변경, 비번변경처럼 갱신된 회원 다시 조회할 필요 없음)
+                         
+                         성공했을 경우 : 메인페이지 alert("성공적으로 회원탈퇴 되었습니다. 그동안 이용해주셔서 감사합니다.")
+                                        단, 로그아웃 되어있어야 함 (세션에 loginMember라는 키값에 해당하는 걸 지우기)
+                         실패했을 경우 => 마이페이지 alert("회원탈퇴 실패!!") 
+                   -->
+  
+              </form>
+            </div>
+            
+          </div>
+        </div>
+      </div>
 
     <%@ include file = "../common/footer.jsp" %>
 </body>

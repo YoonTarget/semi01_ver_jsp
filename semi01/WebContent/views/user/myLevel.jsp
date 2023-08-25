@@ -23,26 +23,27 @@
         height: 100%;
         margin: auto;
     }
-    #myPage-header {
+    #myReview-header {
         width: 100%;
         height: 15%;
         /* border: 1px solid red; */
         text-align: center;
         padding-top: 10px;
     }
-    #myPage-header>img {
+    #myReview-header>img {
         width: 200px;
         height: 100px;
     }
-    #myPage-body {
+    #myReview-body {
         width: 100%;
         height: 80%;
         /* border: 1px solid red; */
         background-color: white;
+        border-radius: 20px;
         /* background-color: #f8f8f8; */
         /* background-color: white; */
     }
-    #myPage-footer {
+    #myReview-footer {
         width: 100%;
         height: 5%;
     }
@@ -94,25 +95,78 @@
         height: 85%;
         /* border: 1px solid red; */
     }
-    #myPage-title {
+    #myReview-title {
         /* border: 1px solid red; */
         width: 80%;
         height: 100%;
         margin: auto;
         border-bottom: 2px solid #8c8c8c;
     }
-    #myPage-title>h4 {
+    #myReview-title>h4 {
         color: #202020;
         font-weight: normal;
         line-height: 6;
         /* border: 1px solid red; */
     }
-    #myPage-content {
+    #myReview-title>h4>span {
+        color: #202020;
+        font-size: 15px;
+    }
+    .myReview-content {
         width: 80%;
-        height: 100%;
+        height: 200px;
         margin: auto;
-        /* border: 1px solid red; */
-        line-height: 3;
+        padding-top: 20px;
+        padding-bottom: 10px;
+        margin-top: 20px;
+        border: 1px solid #8c8c8c;
+        border-radius: 5px;
+        /* background-color: #f8f8f8; */
+    }
+    .myReview-content>div {
+        float: left;
+        height: 100%;
+    }
+    #profile {
+        width: 30%;
+        line-height: 10;
+    }
+    #profile>img {
+        /* border-radius: 40px; */
+        /* background-color: #f8f8f8; */
+    }
+    #description {
+        width: 70%;
+    }
+    #selectLevel {
+        margin: 10px;
+        display: block;
+        height: 35px;
+        padding: 0 12px;
+        line-height: 32px;
+        border-radius: 3px;
+        border: 1px solid #bbb;
+        box-sizing: border-box;
+        background-color: #f9f9f9;
+        text-decoration: none;
+        text-align: center;
+        font-size: 13px;
+        color: #202020;
+    }
+    #selectLevel:hover {
+        opacity: 0.7;
+    }
+    #toggle {
+        width: 100%;
+    }
+    #level-condition {
+        display: none;
+        margin-top: 10px;
+        width: 100%;
+        text-align: center;
+    }
+    #level-condition th, #level-condition td {
+        border: 1px solid #bbb;
     }
     .form-title {
         color: #707070;
@@ -122,12 +176,6 @@
         color: #202020;
         font-size: 14px;
         border-style: none;
-    }
-    button {
-        background-color: #f8f8f8;
-        color: #8c8c8c;
-        border-color: #f8f8f8;
-        border-radius: 5px;
     }
     /* //마이페이지 끝 */
 </style>
@@ -139,125 +187,128 @@
 
         <div class="outer">
     
-            <div id="myPage-header">
+            <div id="myReview-header">
                 <img src="resources/image/goldenLogo.png">
             </div>
     
-            <div id="myPage-body">
+            <div id="myReview-body">
                 
-                <div id="left" class="float">
+               <div id="left" class="float">
 
                     <div class="tab">마이페이지</div>
-                    <div class="tab-inner">회원정보변경</div>
-                    <div class="tab-inner">비밀번호변경</div>
-                    <div class="tab-inner">회원탈퇴</div>
+                    <div class="tab-inner" onclick="myMenu(1);">회원정보조회</div>
                     <div class="tab">마이티켓</div>
-                    <div class="tab-inner">예매확인</div>
-                    <div class="tab-inner">예매취소</div>
+                    <div class="tab-inner" onclick="myMenu(2);">예매조회</div>
                     <div class="tab">마이리뷰</div>
-                    <div class="tab-inner">한줄평조회</div>
-                    <div class="tab-inner">한줄평작성</div>
+                    <div class="tab-inner" onclick="myMenu(3);">한줄평조회</div>
+                    <div class="tab-inner" onclick="myMenu(2);">한줄평작성</div>
                     <div class="tab">마이등급</div>
-                    <div class="tab-inner">등급조회</div>
+                    <div class="tab-inner" onclick="myMenu(4);">등급조회</div>
 
                 </div>
+
+                <script>
+
+                    $(".tab").click(function() {
+                                
+                        $(this).nextUntil(".tab").slideToggle();
+
+                    });
+
+                    function myMenu(num) {
+                    	
+                    	switch(num) {
+                    	case 1 :
+                    		location.href = "<%= contextPath %>/myPage.us";
+                    		break;
+                    	case 2 :
+                    		location.href = "<%= contextPath %>/myTicket.us";
+                    		break;
+                    	case 3 :
+                    		location.href = "<%= contextPath %>/myReview.us";
+                    		break;
+                    	case 4 :
+                    		location.href = "<%= contextPath %>/myLevel.us";
+                    		
+                    	}
+
+                    }
+
+                </script>
+
+
                 <div id="right" class="float">
                     <div id="right-top">
-                        <div id="myPage-title">
+                        <div id="myReview-title">
                             <h4>
-                                마이페이지
+                                마이등급 <span>등급조회</span>
                             </h4>
                         </div>
                     </div>
                     
                     <div id="right-bottom">
-                        <div id="myPage-content">
-                            <form action="#">
-                                <table id="myPageForm">
+
+                        <div class="myReview-content" align="center">
+                            
+                            <div id="profile">
+                                <img src="resources/image/profile2.png" width="150" height="150">
+                            </div>
+                            <div id="description">
+
+                                <h4>XXX 님의 회원등급은 XXX 입니다.</h4>
+                                <br>
+                                <h6>주문 X건 | 주문금액 X원</h6>
+                                <br>
+                                <button id="selectLevel">등급 알아보기</button>
+
+                            </div>
+                            
+                            <div id="toggle">
+
+                                <table id="level-condition">
                                     <tr>
-                                        <td class="form-title">*아이디</td>
-                                        <td colspan="3" class="form-content"><input type="text" name="userId" required value="user01" readonly></td>
+                                        <th width="100">등급</th>
+                                        <th width="100">등급별 혜택</th>
+                                        <th>등급 달성조건</th>
                                     </tr>
                                     <tr>
-                                        <td class="form-title">이름</td>
-                                        <td colspan="3" class="form-content"><input type="text" name="userName" required value="홍길동"></td>
+                                        <td>아이언</td>
+                                        <td></td>
+                                        <td>가입시 달성</td>
                                     </tr>
                                     <tr>
-                                        <td class="form-title">전화번호</td>
-                                        <td colspan="3" class="form-content"><input type="text" name="phone" value="010-1234-5678"></td>
+                                        <td>브론즈</td>
+                                        <td>1% 할인</td>
+                                        <td>12개월 내에 50만원 이상 결제</td>
                                     </tr>
                                     <tr>
-                                        <td class="form-title">이메일</td>
-                                        <td colspan="3" class="form-content"><input type="email" name="email" value="user01@gmail.com"></td>
+                                        <td>실버</td>
+                                        <td>5% 할인</td>
+                                        <td>12개월 내에 100만원 이상 결제</td>
                                     </tr>
                                     <tr>
-                                        <td class="form-title">*생년월일</td>
-                                        <td colspan="3" class="form-content"><input type="text" name="birth" value="1999-01-01" readonly></td>
+                                        <td>골드</td>
+                                        <td>10% 할인</td>
+                                        <td>12개월 내에 200만원 이상 결제</td>
                                     </tr>
                                     <tr>
-                                        <td class="form-title">*등급</td>
-                                        <td colspan="3" class="form-content"><input type="text" name="level" value="아이언" readonly></td>
-                                    </tr>
-                                    <tr>
-                                        <td rowspan="3" class="form-title">관심있는 태그</td>
-                                        <td>
-                                            <td>
-                                                [영화]
-                                            </td>
-                                            <td>
-                                                <select name="interest_movie">
-                                                    <option value="1" selected>로맨스</option>
-                                                    <option value="2">공포/스릴러</option>
-                                                    <option value="3">코미디</option>
-                                                    <option value="4">액션</option>
-                                                </select>
-                                            </td>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <td>
-                                                [전시]
-                                            </td>
-                                            <td>
-                                                <select name="interest_display">
-                                                    <option value="5">그림전시</option>
-                                                    <option value="6">작품전시</option>
-                                                    <option value="7" selected>사진전시</option>
-                                                    <option value="8">체험전시</option>
-                                                </select>
-                                            </td>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <td>
-                                                [공연]
-                                            </td>
-                                            <td>
-                                                <select name="interest_show">
-                                                    <option value="9">뮤지컬</option>
-                                                    <option value="10" selected>연극</option>
-                                                    <option value="11">클래식</option>
-                                                    <option value="12">콘서트</option>
-                                                </select>
-                                            </td>
-                                        </td>
+                                        <td>마스터</td>
+                                        <td>15% 할인</td>
+                                        <td>12개월 내에 400만원 이상 결제</td>
                                     </tr>
                                 </table>
-                                
-                                <div align="center">
-                                    <button type="submit">정보변경</button>
-                                </div>
 
-                            </form>
+                            </div>
+                            
                         </div>
+
                     </div>
+
                 </div>
 
             </div>
 
-            <div id="myPage-footer"></div>
+            <div id="myReview-footer"></div>
     
         </div>
 
@@ -265,9 +316,9 @@
 
     <script>
 
-        $(".tab").click(function() {
+        $("#selectLevel").click(function() {
 
-            $(this).nextUntil(".tab").slideToggle();
+            $("#level-condition").slideToggle();
 
         });
 

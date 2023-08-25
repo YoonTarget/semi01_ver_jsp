@@ -111,55 +111,10 @@
     }
     .myTicket-content {
         width: 80%;
-        height: 250px;
+        height: auto;
         margin: auto;
         /* border: 1px solid blue; */
         line-height: 3;
-        border-bottom: 1px solid #ceccc0;
-        padding-top: 10px;
-        padding-bottom: 10px;
-    }
-    .myTicket-content div {
-        height: 100%;
-        float: left;
-    }
-    .content-img {
-        width: 30%;
-        padding-right: 10px;
-    }
-    .content-img>a {
-        width: 100%;
-        height: 100%;
-    }
-    .content-img>a>img {
-        width: 100%;
-        height: 100%;
-    }
-    .content-img>a>img:hover {
-        width: 100%;
-        height: 100%;
-        opacity: 0.7;
-    }
-    .content-text {
-        width: 60%;
-    }
-    .content-text>table {
-    	line-height: 4;
-    }
-    .content-text a:hover {
-    	opacity: 0.5;
-    }
-    .content-delete {
-        width: 10%;
-        text-align: right;
-    }
-    .content-delete>button {
-        background-color: white;
-        border-color: white;
-    }
-    .content-delete>button:hover {
-    	cursor: pointer;
-    	opacity: 0.5;
     }
     .form-title {
         color: #707070;
@@ -187,6 +142,10 @@
     }
     .myTicket-content button:hover {
         opacity: 0.7;
+    }
+    .btns {
+        width: 100%;
+        text-align: center;
     }
     /* //마이페이지 끝 */
 </style>
@@ -252,58 +211,70 @@
                     <div id="right-top">
                         <div id="myTicket-title">
                             <h4>
-                                마이티켓 <span>예매조회</span>
+                                마이티켓 <span>예매상세조회</span>
                             </h4>
                         </div>
                     </div>
                     
                     <div id="right-bottom">
                         <div class="myTicket-content">
-
-                            <div class="content-img">
-                                <a href="#"><img src="resources/image/콘크리트유토피아.jpg"></a>
-                            </div>
-
-                            <div class="content-text">
-                                <table>
-                                    <tr>
-                                        <td class="form-title" width="100">공연 제목</td>
-                                        <td class="form-content">콘크리트 유토피아</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="form-title">공연 장소</td>
-                                        <td class="form-content">CGV 고양백석, 1관</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="form-title">공연 일시</td>
-                                        <td class="form-content">2023.08.13 (일) 11:00</td>
-                                    </tr>
-                                    	<td><a href="<%= contextPath %>/ticketDetail.us">상세보기</a></td>
-                                        <td><a href="<%= contextPath %>/reviewWrite.us">한줄평쓰기</a></td>
-                                    </tr>
-                                </table>
-                            </div>
-
-                            <div class="content-delete">
-                                <button class="close" onclick="return ticketDelete();">X</button>
-                            </div>
-
-                            <script>
-
-                                function ticketDelete() {
-        
-                                    if(confirm("예매내역을 삭제하시겠습니까?")) {
-                                        location.href = "#";
-                                    }
-                                    else {
-                                        return false;
-                                    }
-        
-                                }
-        
-                            </script>
                             
-                        </div>  
+                            <table class="content-table">
+                                <tr>
+                                    <td class="form-title" width="100">공연 제목</td>
+                                    <td class="form-content">콘크리트 유토피아</td>
+                                </tr>
+                                <tr>
+                                    <td class="form-title">공연 장소</td>
+                                    <td class="form-content">CGV 고양백석, 1관</td>
+                                </tr>
+                                <tr>
+                                    <td class="form-title">공연 일시</td>
+                                    <td class="form-content">2023.08.13 (일) 11:00</td>
+                                </tr>
+                                <tr>
+                                    <td class="form-title">관람 인원</td>
+                                    <td class="form-content">성인 2명</td>
+                                </tr>
+                                <tr>
+                                    <td class="form-title">예매 금액</td>
+                                    <td class="form-content">30,000원 - 성인 2명(15000X2)</td>
+                                </tr>
+                                <tr>
+                                    <td class="form-title">할인 금액</td>
+                                    <td class="form-content">-15,000원</td>
+                                </tr>
+                                <tr>
+                                    <td class="form-title">결제 수단</td>
+                                    <td class="form-content">등급 할인, 카드 할인</td>
+                                </tr>
+                                <tr>
+                                    <td class="form-title">결제 금액</td>
+                                    <td class="form-content">15,000원</td>
+                                </tr>
+                            </table>
+
+                            <div class="btns">
+                                <button onclick="history.back();">돌아가기</button>
+                                <button onclick="ticketDelete();">예매취소</button>
+                            </div>
+                            
+                        </div>
+                        
+                        <script>
+
+                            function ticketDelete() {
+    
+                                if(confirm("해당 예매내역을 삭제하시겠습니까?")) {
+                                    location.href = "#";
+                                }
+                                else {
+                                    return false;
+                                }
+    
+                            }
+    
+                        </script>
                         
                     </div>
                 </div>

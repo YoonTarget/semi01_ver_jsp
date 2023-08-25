@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>티켓딱대</title>
 <style>
-    /* 마이티켓 시작 */
+    /* 마이페이지 시작 */
     div {
         /* border: 1px solid red; */
     }
@@ -23,24 +23,27 @@
         height: 100%;
         margin: auto;
     }
-    #myTicket-header {
+    #myReview-header {
         width: 100%;
         height: 15%;
         /* border: 1px solid red; */
         text-align: center;
         padding-top: 10px;
     }
-    #myTicket-header>img {
+    #myReview-header>img {
         width: 200px;
         height: 100px;
     }
-    #myTicket-body {
+    #myReview-body {
         width: 100%;
         height: 80%;
+        /* border: 1px solid red; */
         background-color: white;
-		border-radius: 20px;
+        border-radius: 20px;
+        /* background-color: #f8f8f8; */
+        /* background-color: white; */
     }
-    #myTicket-footer {
+    #myReview-footer {
         width: 100%;
         height: 5%;
     }
@@ -92,85 +95,45 @@
         height: 85%;
         /* border: 1px solid red; */
     }
-    #myTicket-title {
+    #myReview-title {
         /* border: 1px solid red; */
         width: 80%;
         height: 100%;
         margin: auto;
         border-bottom: 2px solid #8c8c8c;
     }
-    #myTicket-title>h4 {
+    #myReview-title>h4 {
         color: #202020;
         font-weight: normal;
         line-height: 6;
         /* border: 1px solid red; */
     }
-    #myTicket-title>h4>span {
+    #myReview-title>h4>span {
         color: #202020;
         font-size: 15px;
     }
-    .myTicket-content {
+    .myReview-content {
         width: 80%;
-        height: 250px;
+        height: 300px;
         margin: auto;
-        /* border: 1px solid blue; */
-        line-height: 3;
-        border-bottom: 1px solid #ceccc0;
         padding-top: 10px;
         padding-bottom: 10px;
+        margin-top: 20px;
+        /* border: 1px solid red; */
     }
-    .myTicket-content div {
-        height: 100%;
-        float: left;
+    #content-title {
+        padding-top: 5px;
     }
-    .content-img {
-        width: 30%;
-        padding-right: 10px;
+    #content-text {
+        padding-top: 20px;
     }
-    .content-img>a {
+    #content-text>input {
         width: 100%;
         height: 100%;
+        text-align: left;
+        border: 1px solid #ceccc0;
     }
-    .content-img>a>img {
-        width: 100%;
-        height: 100%;
-    }
-    .content-img>a>img:hover {
-        width: 100%;
-        height: 100%;
-        opacity: 0.7;
-    }
-    .content-text {
-        width: 60%;
-    }
-    .content-text>table {
-    	line-height: 4;
-    }
-    .content-text a:hover {
-    	opacity: 0.5;
-    }
-    .content-delete {
-        width: 10%;
-        text-align: right;
-    }
-    .content-delete>button {
-        background-color: white;
-        border-color: white;
-    }
-    .content-delete>button:hover {
-    	cursor: pointer;
-    	opacity: 0.5;
-    }
-    .form-title {
-        color: #707070;
-        font-size: 15px;
-    }
-    .form-content>input {
-        color: #202020;
-        font-size: 14px;
-        border-style: none;
-    }
-    .myTicket-content button {
+    .myReview-content button {
         margin: 10px;
         display: inline;
         height: 35px;
@@ -185,8 +148,17 @@
         font-size: 13px;
         color: #202020;
     }
-    .myTicket-content button:hover {
+    .myReview-content button:hover {
         opacity: 0.7;
+    }
+    .form-title {
+        color: #707070;
+        font-size: 15px;
+    }
+    .form-content>input {
+        color: #202020;
+        font-size: 14px;
+        border-style: none;
     }
     /* //마이페이지 끝 */
 </style>
@@ -198,11 +170,11 @@
 
         <div class="outer">
     
-            <div id="myTicket-header">
+            <div id="myReview-header">
                 <img src="resources/image/goldenLogo.png">
             </div>
     
-            <div id="myTicket-body">
+            <div id="myReview-body">
                 
                 <div id="left" class="float">
 
@@ -250,67 +222,41 @@
 
                 <div id="right" class="float">
                     <div id="right-top">
-                        <div id="myTicket-title">
+                        <div id="myReview-title">
                             <h4>
-                                마이티켓 <span>예매조회</span>
+                                마이리뷰 <span>한줄평 작성</span>
                             </h4>
                         </div>
                     </div>
                     
                     <div id="right-bottom">
-                        <div class="myTicket-content">
 
-                            <div class="content-img">
-                                <a href="#"><img src="resources/image/콘크리트유토피아.jpg"></a>
-                            </div>
-
-                            <div class="content-text">
-                                <table>
-                                    <tr>
-                                        <td class="form-title" width="100">공연 제목</td>
-                                        <td class="form-content">콘크리트 유토피아</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="form-title">공연 장소</td>
-                                        <td class="form-content">CGV 고양백석, 1관</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="form-title">공연 일시</td>
-                                        <td class="form-content">2023.08.13 (일) 11:00</td>
-                                    </tr>
-                                    	<td><a href="<%= contextPath %>/ticketDetail.us">상세보기</a></td>
-                                        <td><a href="<%= contextPath %>/reviewWrite.us">한줄평쓰기</a></td>
-                                    </tr>
-                                </table>
-                            </div>
-
-                            <div class="content-delete">
-                                <button class="close" onclick="return ticketDelete();">X</button>
-                            </div>
-
-                            <script>
-
-                                function ticketDelete() {
-        
-                                    if(confirm("예매내역을 삭제하시겠습니까?")) {
-                                        location.href = "#";
-                                    }
-                                    else {
-                                        return false;
-                                    }
-        
-                                }
-        
-                            </script>
+                        <div class="myReview-content" align="center">
                             
-                        </div>  
-                        
+                            <form action="#" method="post">
+
+                                <div id="content-title">
+                                    <h4>콘크리트 유토피아</h4>
+                                </div>
+                                <div id="content-text">
+                                    <input name="reviewContent" placeholder="운영원칙에 어긋나는 게시물로 판단되는 글은 제재 조치를 받을 수 있습니다.">
+                                </div>
+                                <div align="right">
+                                	<button type="button" onclick="history.back();">돌아가기</button>
+                                    <button type="submit">작성완료</button>
+                                </div>
+
+                            </form>
+                            
+                        </div>
+
                     </div>
+
                 </div>
 
             </div>
 
-            <div id="myTicket-footer"></div>
+            <div id="myReview-footer"></div>
     
         </div>
 

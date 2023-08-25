@@ -108,6 +108,10 @@
         line-height: 6;
         /* border: 1px solid red; */
     }
+    #myReview-title>h4>span {
+        color: #202020;
+        font-size: 15px;
+    }
     .myReview-content {
         width: 80%;
         height: 200px;
@@ -160,6 +164,21 @@
     	cursor: pointer;
     	opacity: 0.5;
     }
+    .myReview-content button {
+        margin: 10px;
+        display: inline;
+        height: 35px;
+        padding: 0 12px;
+        line-height: 32px;
+        border-radius: 3px;
+        border: 1px solid #bbb;
+        box-sizing: border-box;
+        background-color: #f9f9f9;
+        text-decoration: none;
+        text-align: center;
+        font-size: 13px;
+        color: #202020;
+    }
     .form-title {
         color: #707070;
         font-size: 15px;
@@ -168,12 +187,6 @@
         color: #202020;
         font-size: 14px;
         border-style: none;
-    }
-    button {
-        background-color: #f8f8f8;
-        color: #8c8c8c;
-        border-color: #f8f8f8;
-        border-radius: 5px;
     }
     /* //마이페이지 끝 */
 </style>
@@ -194,17 +207,14 @@
                 <div id="left" class="float">
 
                     <div class="tab">마이페이지</div>
-                    <div class="tab-inner" onclick="myPage(1);">회원정보변경</div>
-                    <div class="tab-inner" onclick="myPage(2);">비밀번호변경</div>
-                    <div class="tab-inner" onclick="myPage(3);">회원탈퇴</div>
+                    <div class="tab-inner" onclick="myMenu(1);">회원정보조회</div>
                     <div class="tab">마이티켓</div>
-                    <div class="tab-inner" onclick="myTicket(1);">예매확인</div>
-                    <div class="tab-inner" onclick="myTicket(2);">예매취소</div>
+                    <div class="tab-inner" onclick="myMenu(2);">예매조회</div>
                     <div class="tab">마이리뷰</div>
-                    <div class="tab-inner" onclick="myReview(1);">한줄평조회</div>
-                    <div class="tab-inner" onclick="myReview(2);">한줄평작성</div>
+                    <div class="tab-inner" onclick="myMenu(3);">한줄평조회</div>
+                    <div class="tab-inner" onclick="myMenu(2);">한줄평작성</div>
                     <div class="tab">마이등급</div>
-                    <div class="tab-inner" onclick="myLevel(1);">등급조회</div>
+                    <div class="tab-inner" onclick="myMenu(4);">등급조회</div>
 
                 </div>
 
@@ -216,53 +226,33 @@
 
                     });
 
-                    function myPage(num) {
-                        
-                        switch(num) {
-                            case 1 :
-                                location.href = "<%= contextPath %>/myPage.us";
-                                break;
-                            case 2 :
-                                location.href = "<%= contextPath %>/myPage.us";
-                                break;
-                            case 3 :
-                                location.href = "<%= contextPath %>/myPage.us";
-                        }
+                    function myMenu(num) {
+                    	
+                    	switch(num) {
+                    	case 1 :
+                    		location.href = "<%= contextPath %>/myPage.us";
+                    		break;
+                    	case 2 :
+                    		location.href = "<%= contextPath %>/myTicket.us";
+                    		break;
+                    	case 3 :
+                    		location.href = "<%= contextPath %>/myReview.us";
+                    		break;
+                    	case 4 :
+                    		location.href = "<%= contextPath %>/myLevel.us";
+                    		
+                    	}
 
                     }
-
-                    function myTicket(num) {
-
-                        if(num == 1) {
-                            location.href = "<%= contextPath %>/myTicket.us";
-                        }
-                        else {
-                            location.href = "<%= contextPath %>/myTicket.us";
-                        }
-
-                    }
-
-                    function myReview(num) {
-                        if(num == 1) {
-                            location.href = "<%= contextPath %>/myReview.us";
-                        }
-                        else {
-                            location.href = "<%= contextPath %>/myReview.us";
-                        }
-                    }
-
-                    function myLevel(num) {
-                        location.href = "<%= contextPath %>/myLevel.us";
-                    }   
-
 
                 </script>
+
 
                 <div id="right" class="float">
                     <div id="right-top">
                         <div id="myReview-title">
                             <h4>
-                                마이리뷰
+                                마이리뷰 <span>한줄평 조회</span>
                             </h4>
                         </div>
                     </div>
@@ -293,19 +283,19 @@
                                     </tr>
                                     <tr>
                                     	<td colspan="3">
-                                    		<a href="#">수정하기</a>
+                                    		<a href="<%= contextPath %>/updateReview.us">수정하기</a>
                                     	</td>
                                     </tr>
                                 </table>
                             </div>
 
                             <div class="content-delete">
-                                <button class="close" onclick="return ReviewDelete();">X</button>
+                                <button class="close" onclick="return reviewDelete();">X</button>
                             </div>
 
                             <script>
 
-                                function ReviewDelete() {
+                                function reviewDelete() {
         
                                     if(confirm("작성한 한줄평을 삭제하시겠습니까?")) {
                                         location.href = "#";
@@ -344,7 +334,7 @@
                                     </tr>
                                     <tr>
                                     	<td colspan="3">
-                                    		<a href="<%= contextPath %>/updateReview.us">수정하기</a>
+                                    		<a href="#">수정하기</a>
                                     	</td>
                                     </tr>
                                 </table>

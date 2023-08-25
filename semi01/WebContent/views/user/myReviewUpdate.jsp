@@ -116,28 +116,40 @@
         width: 80%;
         height: 300px;
         margin: auto;
-        line-height: 3;
         padding-top: 10px;
         padding-bottom: 10px;
         margin-top: 20px;
         /* border: 1px solid red; */
     }
-    .myReview-content div {
-        width: 100%;
-    }
     #content-title {
-        height: 20%;
-        padding-top: 10px;
+        padding-top: 5px;
     }
     #content-text {
-        padding-top: 10px;
-        height: 80%;
+        padding-top: 20px;
     }
-    #content-text>textarea {
+    #content-text>input {
         width: 100%;
         height: 100%;
-        resize: none;
+        text-align: left;
         border: 1px solid #ceccc0;
+    }
+    .myReview-content button {
+        margin: 10px;
+        display: inline;
+        height: 35px;
+        padding: 0 12px;
+        line-height: 32px;
+        border-radius: 3px;
+        border: 1px solid #bbb;
+        box-sizing: border-box;
+        background-color: #f9f9f9;
+        text-decoration: none;
+        text-align: center;
+        font-size: 13px;
+        color: #202020;
+    }
+    .myReview-content button:hover {
+        opacity: 0.7;
     }
     .form-title {
         color: #707070;
@@ -147,12 +159,6 @@
         color: #202020;
         font-size: 14px;
         border-style: none;
-    }
-    button {
-        background-color: #f8f8f8;
-        color: #8c8c8c;
-        border-color: #f8f8f8;
-        border-radius: 5px;
     }
     /* //마이페이지 끝 */
 </style>
@@ -173,17 +179,14 @@
                 <div id="left" class="float">
 
                     <div class="tab">마이페이지</div>
-                    <div class="tab-inner" onclick="myPage(1);">회원정보변경</div>
-                    <div class="tab-inner" onclick="myPage(2);">비밀번호변경</div>
-                    <div class="tab-inner" onclick="myPage(3);">회원탈퇴</div>
+                    <div class="tab-inner" onclick="myMenu(1);">회원정보조회</div>
                     <div class="tab">마이티켓</div>
-                    <div class="tab-inner" onclick="myTicket(1);">예매확인</div>
-                    <div class="tab-inner" onclick="myTicket(2);">예매취소</div>
+                    <div class="tab-inner" onclick="myMenu(2);">예매조회</div>
                     <div class="tab">마이리뷰</div>
-                    <div class="tab-inner" onclick="myReview(1);">한줄평조회</div>
-                    <div class="tab-inner" onclick="myReview(2);">한줄평작성</div>
+                    <div class="tab-inner" onclick="myMenu(3);">한줄평조회</div>
+                    <div class="tab-inner" onclick="myMenu(2);">한줄평작성</div>
                     <div class="tab">마이등급</div>
-                    <div class="tab-inner" onclick="myLevel(1);">등급조회</div>
+                    <div class="tab-inner" onclick="myMenu(4);">등급조회</div>
 
                 </div>
 
@@ -195,47 +198,27 @@
 
                     });
 
-                    function myPage(num) {
-                        
-                        switch(num) {
-                            case 1 :
-                                location.href = "<%= contextPath %>/myPage.us";
-                                break;
-                            case 2 :
-                                location.href = "<%= contextPath %>/myPage.us";
-                                break;
-                            case 3 :
-                                location.href = "<%= contextPath %>/myPage.us";
-                        }
+                    function myMenu(num) {
+                    	
+                    	switch(num) {
+                    	case 1 :
+                    		location.href = "<%= contextPath %>/myPage.us";
+                    		break;
+                    	case 2 :
+                    		location.href = "<%= contextPath %>/myTicket.us";
+                    		break;
+                    	case 3 :
+                    		location.href = "<%= contextPath %>/myReview.us";
+                    		break;
+                    	case 4 :
+                    		location.href = "<%= contextPath %>/myLevel.us";
+                    		
+                    	}
 
                     }
-
-                    function myTicket(num) {
-
-                        if(num == 1) {
-                            location.href = "<%= contextPath %>/myTicket.us";
-                        }
-                        else {
-                            location.href = "<%= contextPath %>/myTicket.us";
-                        }
-
-                    }
-
-                    function myReview(num) {
-                        if(num == 1) {
-                            location.href = "<%= contextPath %>/myReview.us";
-                        }
-                        else {
-                            location.href = "<%= contextPath %>/myReview.us";
-                        }
-                    }
-
-                    function myLevel(num) {
-                        location.href = "<%= contextPath %>/myLevel.us";
-                    }   
-
 
                 </script>
+
 
                 <div id="right" class="float">
                     <div id="right-top">
@@ -256,9 +239,12 @@
                                     <h4>짱구는 못말려 : 우비짱구의 대모험</h4>
                                 </div>
                                 <div id="content-text">
-                                    <textarea name="reviewContent"></textarea>
+                                    <input name="reviewContent" value="너무너무 재미있어요.">
                                 </div>
-                                <button>작성완료</button>
+                                <div align="right">
+                                	<button type="button" onclick="history.back();">돌아가기</button>
+                                    <button type="submit">작성완료</button>
+                                </div>
 
                             </form>
                             
