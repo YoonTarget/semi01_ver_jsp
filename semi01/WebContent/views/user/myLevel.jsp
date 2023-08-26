@@ -318,7 +318,12 @@
 
         $("#selectLevel").click(function() {
 
-            $("#level-condition").slideToggle();
+           if( $("#level-condition").css("display") == "none") {
+             $("#level-condition").css("display", "block");
+           }
+           else {
+             $("#level-condition").css("display", "none");
+           }
 
         });
 
