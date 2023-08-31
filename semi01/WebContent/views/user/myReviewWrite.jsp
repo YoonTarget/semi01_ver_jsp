@@ -62,7 +62,8 @@
         height: 10%;
         text-align: center;
         line-height: 5;
-        font-size: 14px;
+        font-size: 15px;
+        font-weight: bold;
         color: #202020;
         /* border: 1px solid red; */
     }

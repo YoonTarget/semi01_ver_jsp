@@ -62,7 +62,8 @@
         height: 10%;
         text-align: center;
         line-height: 5;
-        font-size: 14px;
+        font-size: 15px;
+        font-weight: bold;
         color: #202020;
         /* border: 1px solid red; */
     }
@@ -269,7 +270,7 @@
                                     <tr>
                                         <th width="100">등급</th>
                                         <th width="100">등급별 혜택</th>
-                                        <th>등급 달성조건</th>
+                                        <th width="500">등급 달성조건</th>
                                     </tr>
                                     <tr>
                                         <td>아이언</td>
